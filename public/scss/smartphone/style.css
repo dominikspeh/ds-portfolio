@@ -1,0 +1,39 @@
+.alert p {
+  color: white;
+  text-align: center; }
+
+/*FORM*/
+.formbody {
+  padding-top: 20px; }
+
+.codeArea {
+  padding: 30px 0 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: #49afa4; }
+
+textarea:focus, input:focus {
+  outline: none; }
+
+.codeInput {
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+  width: 60px;
+  padding: 10px 10px 10px 23px;
+  font-size: 25px;
+  box-shadow: none; }
+
+.alert-code {
+  position: fixed;
+  bottom: 54px;
+  left: 0px; }
+
+.fixfixed .header,
+.fixfixed .footer {
+  position: absolute; }
+
+/*# sourceMappingURL=style.css.map */

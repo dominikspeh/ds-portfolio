@@ -1,0 +1,19 @@
+.mobile(ng-controller='MobileCodeCtrl')
+    .content
+        form.formbody(style="padding-bottom:70px")
+            .form-group
+                input.form-control.code(type='hidden', value="#{code}", ng-model='code')
+
+
+            .form-group.codeArea
+                input.codeInput(type='number',pattern='[0-9]*')
+                input.codeInput(type='number',pattern='[0-9]*')
+                input.codeInput(type='number',pattern='[0-9]*')
+                input.codeInput(type='number',pattern='[0-9]*')
+
+
+        div.alert.alert-danger.alert-code(ng-show='isCodeInvalid')
+            p Error
+
+
+

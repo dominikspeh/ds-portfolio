@@ -1,0 +1,11 @@
+
+### Node template
+node_modules
+
+### WEBSTORM
+.idea
+
+### BOWER
+public/bower_components
+
+

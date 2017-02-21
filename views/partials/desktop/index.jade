@@ -1,0 +1,25 @@
+div(ng-controller='PcCodeCtrl')
+    div(ng-controller='PcMainCtrl')
+
+
+        include layout/navigation
+
+        .welcome
+            h1 Welcome.
+            p Here you can find out all about me, my skills and my projects.
+            p Also you can check out my new blog  :)
+
+            ul
+                li
+                    a(href="#", ng-click="goToAbout()") About me
+                li
+                    a(href="#") Skills
+                li
+                    a(href="#") Project
+                li
+                    a(href="#") Blog
+
+
+
+
+

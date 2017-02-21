@@ -1,0 +1,30 @@
+{
+  "name": "hbc-rtp",
+  "version": "0.0.0",
+  "authors": [
+    "Dominik Speh <speh@querformat.info>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jade": "*",
+    "jade-query": "~0.3.3",
+    "angular-route": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-socket-io": "^0.7.0",
+    "angular-translate": "^2.11.0",
+    "angular-animate": "^1.5.7",
+    "angular-google-analytics": "^1.1.7",
+    "AngularHammer": "ryanmullins-angular-hammer#2.1.10",
+    "bootstrap": "v4.0.0-alpha.2"
+  },
+  "homepage": "https://github.com/dominikspeh/HBC-RTP",
+  "description": "",
+  "main": ""
+}

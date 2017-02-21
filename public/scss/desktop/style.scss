@@ -1,0 +1,144 @@
+@import "../variables";
+
+body {
+  background-color: $background;
+  overflow: hidden;
+  padding-right: 80px;
+  padding-top: 67px;
+}
+
+// NAVIGATION
+.navigation {
+  position: fixed;
+  border-left: 1px solid white;
+  z-index: 99;
+  right: 0;
+  height: 100vh;
+  width: 80px;
+  top:0;
+  background-color: $brand-primary;
+  text-align: center;
+
+
+  i.nav {
+    font-size: 26px;
+    border-bottom: 1px solid white;
+    top: 0;
+  }
+  i.mobile {
+    bottom: 0;
+    font-size: 32px;
+    border-top: 1px solid white;
+  }
+  i {
+    cursor: pointer;
+    transition: all 1s;
+    display: block;
+    position: absolute;
+    width: 100%;
+    color: white;
+    padding: 20px 0;
+  }
+  i:hover, i.active {
+    background-color: $secondary-color;
+    color: white;
+  }
+
+}
+
+.naviContainer {
+  top:0;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+  background-color: rgba(52,73,95,0.9);
+  color: white;
+}
+
+.mobileContainer {
+  border: 1px solid white;
+  width: 450px;
+  position: fixed;
+  bottom:0;
+  right: 80px;
+  background-color: $secondary-color;
+  color: white;
+  z-index: 3;
+
+}
+
+
+// WELCOME
+.welcome {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100vh;
+  margin-top: -69px;
+
+  h1 {
+    font-size: 150px;
+    font-family: 'Lora', serif;
+    color: $brand-primary;
+  }
+
+  p {
+    font-size: 18px;
+    color: $brand-primary;
+  }
+
+  ul {
+    margin-top: 30px;
+    margin-left: 0;
+    padding:0;
+
+    li {
+      display: inline;
+      margin: 20px;
+
+       a {
+         color: $secondary-color;
+         cursor: pointer;
+       }
+      a:hover {
+        text-decoration: none;
+        color: $brand-primary
+      }
+    }
+  }
+}
+
+// ABOUT
+  .box {
+    background-color: white;
+    border:5px solid $background;
+    padding: 40px;
+  }
+
+.profile {
+  border-radius: 50%;
+  width: 250px;
+}
+.fade {
+  opacity: 1;
+}
+.fade.ng-hide {
+  opacity: 0;
+}
+
+.fade.ng-hide-remove,
+.fade.ng-hide-add {
+  display:  inline-block !important;
+}
+
+.fade.ng-hide-remove {
+  transition: all linear 700ms;
+}
+
+.fade.ng-hide-add {
+  transition: all linear 500ms;
+}
