@@ -1,18 +1,44 @@
 aside.navigation
     i.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}")
+    .current
+        i.fa.fa-angle-left(ng-if="isActive('/ds/about')", ng-click="historyBack()")
+        i.fa.fa-male.active(ng-if="isActive('/ds/about')", ng-click="moveTo(1)")
+        i.fa.fa-cogs(ng-if="isActive('/ds/about')", ng-click="moveTo(2)")
+        i.fa.fa-list-ol(ng-if="isActive('/ds/about')", ng-click="moveTo(3)")
     i.fa.mobile.fa-mobile-phone(ng-click="showMobileNav = !showMobileNav ; showNavigation = false", ng-class="{'active':showMobileNav}")
 
 .naviContainer.fade(ng-show="showNavigation")
-    ul
-        li
-            a Test
+    .row.justify-content-center.align-items-center.align-content-center
+        ul
+            li
+                a(href="#", ng-class="{ active: isActive('/')}", ng-click="goToHome()") Home
+            li
+                a(href="#", ng-class="{ active: isActive('/ds/about')}", ng-click="goToAbout()") About me
 
-.mobileContainer.fade(ng-show="showMobileNav")
+            li
+                a(href="#") Projects
+            li
+                a(href="#") Blog
+            li
+                a(href="#") Contact
+    .imprint
+        ul
+            li
+                a(href="#") Impressum
+            li
+                a(href="#") Datenschutz
 
-    .row.align-items-center.justify-content-around
+
+
+.mobileContainer.fade(ng-show="showMobileNav", ng-controller="PcCodeCtrl")
+
+    .row.align-items-center.justify-content-around.align-content-center
         .col-12.col-md-auto
             img(src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2F{{host}}{{code}}%2F&chs=150x150&choe=UTF-8&chld=L|2')
 
         .col
-            p {{url}}{{code}}
             p {{ code1 }} {{ code2 }} {{ code3 }} {{ code4 }}
+
+.scroll
+    img.scrolldown(src="/img/scrolldown.gif")
+    span SCROLL

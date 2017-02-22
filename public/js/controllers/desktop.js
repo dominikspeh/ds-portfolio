@@ -2,16 +2,16 @@
 
 angular.module('ds.controllers.desktop', [
 ]).
-controller('PcCodeCtrl', function ($scope, $location, socket) {
+controller('PcCodeCtrl', function ($scope, $rootScope, $location, socket) {
     socket.on('pair:sendCode', function(data) {
 
-        $scope.url = $location.absUrl();
-        $scope.host = $location.host()+"/";
-        $scope.code  = data.code;
-        $scope.code1 = data.code.charAt(0);
-        $scope.code2 = data.code.charAt(1);
-        $scope.code3 = data.code.charAt(2);
-        $scope.code4 = data.code.charAt(3);
+        $rootScope.url = $location.absUrl();
+        $rootScope.host = $location.host()+"/";
+        $rootScope.code  = data.code;
+        $rootScope.code1 = data.code.charAt(0);
+        $rootScope.code2 = data.code.charAt(1);
+        $rootScope.code3 = data.code.charAt(2);
+        $rootScope.code4 = data.code.charAt(3);
 
     });
 
@@ -38,11 +38,17 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window) {
 
 
 }).
-controller('PcAboutCtrl', function ($scope, $location, socket, $window) {
+controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window) {
+$scope.activeSkill = 0;
 
-    fullpage.initialize('#fullpage', {
-        css3:true
-    });
+$scope.showSkill = function (area) {
+   $scope.activeSkill = area;
+   drawAll();
+
+}
+
+
+
 
 
 });

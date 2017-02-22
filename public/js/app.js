@@ -32,5 +32,7 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
         requireBase: false
     });
 
+
+
 }).
 run(function(Analytics) {});

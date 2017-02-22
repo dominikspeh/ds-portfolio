@@ -1,15 +1,410 @@
 .about(ng-controller="PcAboutCtrl")
-    #fullpage
-        #section0.section
-            h1 About me
 
-        #section1.section
-            h1 Skills
 
-        #section2.section
-            h1 Vita
+        #fullpage
+            #section0.section
+                .container
 
-    include layout/navigation
+                    .row
+                        .col.text-center.box.left
+
+                            img.profile(src="/img/dominikspeh.jpg")
+
+                        .col.box.right
+
+                            h1 Dominik Speh
+                            p.lead mail@domi-speh.de
+
+
+                            .social
+                                .row
+                                    .col
+                                        a(href="https://www.xing.com/profile/Dominik_Speh" target="blank")
+                                            i.fa.fa.fa-xing
+                                    .col
+                                        a.test(href="https://www.facebook.com/dominik.speh" target="blank")
+                                            i.fa.fa.fa-facebook
+
+                                    .col
+                                        a.test(href="https://www.linkedin.com/in/dominik-speh-a6a5b6124/" target="blank")
+                                            i.fa.fa-linkedin
+
+                                    .col
+                                        a.test(href="https://www.instagram.com/domspeh" target="blank")
+                                            i.fa.fa-instagram
+
+
+
+
+
+
+            #section1.section
+
+                .container.text-center
+                    h1.big Skills
+                    .bar
+                        span.btn.btn-primary.btn-sm(ng-click="showSkill(0)",ng-class="{'active':activeSkill==0}") Languages
+                        span.btn.btn-primary.btn-sm(ng-click="showSkill(1)",ng-class="{'active':activeSkill==1}") Frameworks
+                        span.btn.btn-primary.btn-sm(ng-click="showSkill(2)",ng-class="{'active':activeSkill==2}") Others
+
+                    .row.languages(ng-show="activeSkill == 0")
+                        .col.text-center
+                            #skill-js.circle()
+                            h5 Javascript
+
+                        .col.text-center
+                            #skill-php.circle()
+                            h5 PHP
+
+                        .col.text-center
+                            #skill-html.circle()
+                            h5 HTML
+
+                        .col.text-center
+                            #skill-css.circle()
+                            h5 CSS
+
+                    .row.frameworks(ng-show="activeSkill == 1")
+                        .col.text-center
+                            #skill-node.circle()
+                            h5 Node.js
+
+                        .col.text-center
+                            #skill-angular.circle()
+                            h5 Angular.js
+
+                        .col.text-center
+                            #skill-ionic.circle()
+                            h5 Ionic
+
+                        .col.text-center
+                            #skill-react.circle()
+                            h5 React
+
+                    .row.others(ng-show="activeSkill == 2")
+                        .col.text-center
+                            #skill-design.circle()
+                            h5 Web Design
+
+                        .col.text-center
+                            #skill-ux.circle()
+                            h5 UX
+
+                        .col.text-center
+                            #skill-photo.circle()
+                            h5 Photographie
+
+                        .col.text-center
+                            #skill-music.circle()
+                            h5 Music production
+
+
+
+            #section2.section
+                .container
+                    .row
+                        .col
+                            h1 Test
+                        .col
+
+
+        include layout/navigation
+
+    script.
+        if ($('html').hasClass('fp-enabled')) {
+            $.fn.fullpage.destroy('all');
+        }
+        $('#fullpage').fullpage({
+            sectionsColor: ['#e8e8e8', '#49afa4', '#34495e'],
+
+            afterLoad: function (anchorLink, index) {
+
+                if(index == 1){
+                    $(".social").css("opacity","0");
+                    $(".left, .right").show();
+                    $('.left').animateCss('fadeInLeft');
+                    $('.right').animateCss('fadeInRight');
+
+                    setTimeout(function () {
+                        $(".social").css("opacity","1");
+                        $('.social').animateCss('fadeInUp');
+                    },1000)
+                }
+
+                if (index == 2) {
+                    drawAll();
+
+                }
+
+
+                index = index+1
+
+                $(".current i").removeClass("active");
+                $(".current i:nth-child(" + index + ")").addClass("active");
+
+            },
+            onLeave: function (index, nextIndex, direction) {
+
+                if(nextIndex == 2){
+                    $('.left').animateCss('fadeOutLeft');
+                    $('.right').animateCss('fadeOutRight', function () {
+                        console.log("as")
+                    });
+
+
+
+                }
+            }
+
+
+        });
+
+
+        function draw(idwhere, idwhat, options) {
+            $("#" + idwhat).remove();
+            $("#" + idwhere).append('<div id="' + idwhat + '"></div>');
+            $.each(options, function (i, val) {
+                $("#" + idwhat).attr('data-' + i, val)
+            });
+            $("#" + idwhat).circliful();
+        }
+
+        function drawAll() {
+            draw('skill-js', 'a', {
+                animation: 1,
+                animationStep: 6,
+                percent: 80,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "JS",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-php', 'b', {
+                animation: 1,
+                animationStep: 6,
+                percent: 60,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "PHP",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-html', 'c', {
+                animation: 1,
+                animationStep: 6,
+                percent: 100,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "HTML",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-css', 'd', {
+                animation: 1,
+                animationStep: 6,
+                percent: 100,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "CSS",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+
+            draw('skill-node', 'e', {
+                animation: 1,
+                animationStep: 6,
+                percent: 70,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "Node.js",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-angular', 'f', {
+                animation: 1,
+                animationStep: 6,
+                percent: 50,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "Angular.js",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-ionic', 'g', {
+                animation: 1,
+                animationStep: 6,
+                percent: 40,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "Ionic",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-react', 'h', {
+                animation: 1,
+                animationStep: 6,
+                percent: 20,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "React",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+
+            draw('skill-design', 'i', {
+                animation: 1,
+                animationStep: 6,
+                percent: 90,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "Design",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-ux', 'j', {
+                animation: 1,
+                animationStep: 6,
+                percent: 70,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "UX",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-music', 'k', {
+                animation: 1,
+                animationStep: 6,
+                percent: 50,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "Music",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+            draw('skill-photo', 'l', {
+                animation: 1,
+                animationStep: 6,
+                percent: 70,
+                foregroundBorderWidth: 7,
+                backgroundBorderWidth: 1,
+                replacePercentageByText: "",
+                foregroundColor: '#34495e',
+                backgroundColor: '#e8e8e8',
+                noPercentageSign: true,
+                fontColor: '',
+                iconColor: '#e8e8e8',
+                icon: 'f004',
+                text: "Photo",
+                textColor: '#e8e8e8',
+                textStyle: 'margin-top:20px',
+                iconSize: '20',
+                iconPosition: 'top'
+            })
+        }
+
+
+
+
 
 
 

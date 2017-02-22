@@ -2,3 +2,18 @@ $brand-primary : #49afa4;
 $secondary-color : #34495e;
 
 $background: #e8e8e8;
+
+
+.btn-primary {
+  background-color: $brand-primary;
+  color: $secondary-color;
+  border-color: $secondary-color;
+}
+.btn-primary.active {
+  background-color: $secondary-color;
+}
+.btn-primary:hover {
+  background-color: $background;
+  color: $secondary-color;
+  border-color: $secondary-color;
+}

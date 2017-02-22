@@ -9,9 +9,10 @@ div(ng-controller='PcCodeCtrl')
             p Here you can find out all about me, my skills and my projects.
             p Also you can check out my new blog  :)
 
+
             ul
                 li
-                    a(href="#", ng-click="goToAbout()") About me
+                    a(href="#", ng-class="{ active: isActive('/ds/about')}", ng-click="goToAbout()") About me
 
                 li
                     a(href="#") Project

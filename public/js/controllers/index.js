@@ -15,12 +15,32 @@ controller('HeadCtrl', function ($scope, socket, $location) {
     });
 }).
 // global controller
-controller('GlobalCtrl', function($scope, $location, socket) {
+controller('GlobalCtrl', function($scope, $timeout,$rootScope,$location, socket, $window) {
     $scope.showMobileNav = false;
+
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path();
+    };
+
+    $scope.historyBack = function () {
+        $window.history.back();
+
+    };
+    $scope.goToHome = function () {
+        $location.path('/');
+    }
 
     $scope.goToAbout = function () {
         $location.path('/ds/about');
     }
+
+
+    // SUBNAV
+    $scope.moveTo = function (id) {
+        $.fn.fullpage.moveTo(id);
+    };
+
+
 
 
 
