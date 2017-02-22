@@ -37,5 +37,14 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window) {
     });
 
 
+}).
+controller('PcAboutCtrl', function ($scope, $location, socket, $window) {
+
+    fullpage.initialize('#fullpage', {
+        css3:true
+    });
+
+
 });
+
 

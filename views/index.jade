@@ -7,6 +7,7 @@ html(ng-app='ds')
               meta(name='apple-mobile-web-app-capable', content='yes')
               link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
               link(href='https://fonts.googleapis.com/css?family=Lora:700', rel='stylesheet')
+              link(rel='stylesheet', type='text/css', href='/scss/libs/javascript.fullPage.css')
 
               link(href='/scss/animate.css', rel='stylesheet')
               link(href='/scss/font-awesome.min.css', rel='stylesheet')
@@ -14,8 +15,7 @@ html(ng-app='ds')
 
 
        body(ng-controller="GlobalCtrl")
-
-              .content(ng-view)
+              section.ds(ng-view)
 
 
        // scripts loaded here
@@ -37,6 +37,7 @@ html(ng-app='ds')
        // BOOTSTRAP
        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
 
+       script(type='text/javascript', src='/js/libs/javascript.fullPage.js')
 
        // ANGULAR CONTROLLERS & FILES
        script(src='/js/app.js')

@@ -1,8 +1,13 @@
 body {
   background-color: #e8e8e8;
-  overflow: hidden;
   padding-right: 80px;
   padding-top: 67px; }
+
+h1, h2, h3, h4, h5 {
+  color: #34495e; }
+
+section.ds {
+  height: 100%; }
 
 .navigation {
   position: fixed;
@@ -83,14 +88,38 @@ body {
         text-decoration: none;
         color: #49afa4; }
 
+.about {
+  height: 100%; }
+
+.area {
+  margin-bottom: 80px; }
+
 .box {
   background-color: white;
-  border: 5px solid #e8e8e8;
+  border: 1px solid #e8e8e8;
   padding: 40px; }
+
+.container .heading {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 20px 0; }
 
 .profile {
   border-radius: 50%;
   width: 250px; }
+
+.section {
+  border-top: 67px solid #49afa4;
+  padding-top: 80px; }
+
+#section0 {
+  background-color: #49afa4; }
+
+#section1 {
+  background-color: white; }
+
+#section2 {
+  background-color: yellow; }
 
 .fade {
   opacity: 1; }

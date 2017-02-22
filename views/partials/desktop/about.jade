@@ -1,15 +1,15 @@
-div(ng-controller='PcCodeCtrl')
-    div(ng-controller='PcMainCtrl')
+.about(ng-controller="PcAboutCtrl")
+    #fullpage
+        #section0.section
+            h1 About me
 
+        #section1.section
+            h1 Skills
 
-        include layout/navigation
+        #section2.section
+            h1 Vita
 
-        .container
-            .row.boxes
-                .col-12.col-md-auto.text-center.box
-                    img.profile(src="/img/dominikspeh.jpg")
-                .col.text-center.box
-                    h1 Dominik Speh
-                    p.lead mail@domi-speh.de
+    include layout/navigation
+
 
 
