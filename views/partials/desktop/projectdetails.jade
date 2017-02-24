@@ -1,8 +1,43 @@
 .projectdetails(ng-controller="PcProjectDetailsCtrl")
+    #fullpage
+        #section0.section
 
-    .container.text-center
-        h1.big {{project.name}}
+            .container
+                h1.big.text-center {{project.name}}
 
+                .row(style="margin-top:70px")
+                    .col-md-8.header
+                        img(ng-src="{{project.image}}")
+                    .col-md-4.text-center
+                        h5 {{project.type}}
+                        hr
+                        p {{project.description}}
+
+                        hr
+                        .website(ng-if="project.languages")
+
+                            ul.languages(ng-if="project.languages.length > 0")
+                                h5 Languages
+                                li(ng-repeat="language in project.languages") {{language}}
+
+
+                            ul.languages(ng-if="project.frameworks.length > 0")
+                                h5 Frameworks & Tools
+                                li.frameworks(ng-repeat="framework in project.frameworks") {{framework}}
+
+
+
+        #section1.section
+            .container.text-center
+
+        #section2.section
+            .container.text-center
+
+
+
+.scroll
+    img.scrolldown(src="/img/scrolldown.gif")
+    span SCROLL
 
 
 include layout/navigation
@@ -12,3 +47,16 @@ script.
     if ($('html').hasClass('fp-enabled')) {
         $.fn.fullpage.destroy('all');
     }
+
+    $('#fullpage').fullpage({
+        sectionsColor: ['#e8e8e8', '#49afa4', '#34495e', '#e8e8e8'],
+
+        afterLoad: function (anchorLink, index) {
+
+        },
+        onLeave: function (index, nextIndex, direction) {
+
+        }
+
+
+    });
