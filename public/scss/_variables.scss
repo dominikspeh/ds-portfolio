@@ -3,6 +3,7 @@ $secondary-color : #34495e;
 
 $background: #e8e8e8;
 
+$random: random(3);
 
 .btn-primary {
   background-color: $brand-primary;
@@ -13,7 +14,7 @@ $background: #e8e8e8;
   background-color: $secondary-color;
 }
 .btn-primary:hover {
-  background-color: $background;
-  color: $secondary-color;
+  background-color: $secondary-color;
+  color: $background;
   border-color: $secondary-color;
 }

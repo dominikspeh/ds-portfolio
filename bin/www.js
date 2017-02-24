@@ -1,11 +1,22 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+
 var app = express();
 var http = require('http');
 
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
+// ENV
+dotenv.load({ path: '.env' });
+
+// CONFIG
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
+mongoose.connection.on('error', () => {
+    process.exit();
+});
 
 // SOCKET
 io.sockets.on('connection', require('../routes/socket'));
@@ -14,6 +25,7 @@ io.sockets.on('connection', require('../routes/socket'));
 // Routes
 var index = require('../routes/index');
 var partials = require('../routes/partials');
+var api = require('../routes/api');
 
 
 
@@ -33,6 +45,7 @@ app.use(express.static('./public'));
 
 // Routen
 app.use('/', index);
+app.use('/api', api);
 app.use('/partials', partials);
 
 // Error Handling

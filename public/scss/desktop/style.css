@@ -7,18 +7,21 @@
   background-color: #34495e; }
 
 .btn-primary:hover {
-  background-color: #e8e8e8;
-  color: #34495e;
+  background-color: #34495e;
+  color: #e8e8e8;
   border-color: #34495e; }
 
 body {
-  background-color: #e8e8e8;
-  padding-right: 80px;
-  padding-top: 67px; }
+  background-color: #e8e8e8; }
+
+.ds {
+  padding-right: 80px; }
 
 a {
   color: #49afa4;
   transition: all 1s; }
+  a i {
+    color: #49afa4; }
 
 a:hover {
   color: #34495e; }
@@ -27,8 +30,11 @@ hr {
   border-top: 1px solid rgba(52, 73, 95, 0.1);
   width: 25%; }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, i, p {
   color: #34495e; }
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark p, .dark span, .dark i {
+  color: #e8e8e8; }
 
 h1.big {
   font-family: 'Lora', serif;
@@ -47,6 +53,17 @@ section.ds {
   top: 0;
   background-color: #49afa4;
   text-align: center; }
+  .navigation .back {
+    position: absolute;
+    top: 67px;
+    font-size: 25px;
+    border-bottom: 1px solid #e8e8e8; }
+  .navigation .currentPage {
+    font-size: 12px;
+    color: #e8e8e8;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 15px; }
   .navigation i.nav {
     font-size: 26px;
     border-bottom: 1px solid white;
@@ -64,7 +81,7 @@ section.ds {
     cursor: pointer;
     transition: all 1s;
     display: block; }
-  .navigation i:hover, .navigation i.active {
+  .navigation span:hover i, .navigation span.active i, .navigation i:hover {
     background-color: #34495e;
     color: white; }
   .navigation .current {
@@ -169,15 +186,12 @@ section.ds {
   justify-content: center;
   align-items: center; }
 
-.section {
-  padding-bottom: 65px; }
-
 .scroll {
   width: 100px;
   position: fixed;
   bottom: 10px;
   left: 50%;
-  margin-left: -78px;
+  margin-left: -83px;
   text-align: center; }
   .scroll img {
     width: 100%;
@@ -185,12 +199,10 @@ section.ds {
   .scroll span {
     font-size: 12px; }
 
-.container {
-  padding-right: 80px; }
-  .container .heading {
-    font-size: 18px;
-    text-transform: uppercase;
-    margin: 20px 0; }
+.container .heading {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 20px 0; }
 
 .profile {
   border-radius: 50%;
@@ -204,6 +216,158 @@ section.ds {
   .bar span {
     cursor: pointer;
     margin: 5px; }
+
+.skills h5 {
+  font-weight: 300;
+  margin-bottom: 3px; }
+.skills p {
+  color: #e8e8e8;
+  font-weight: 300;
+  font-size: 12px;
+  margin-top: 0; }
+
+.height100vh {
+  height: 100vh; }
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9; }
+
+.map.overlay {
+  z-index: 10;
+  background-color: rgba(52, 73, 95, 0.8); }
+
+.vita section {
+  position: relative; }
+.vita .col:first-child {
+  border-right: 1px solid #49afa4; }
+  .vita .col:first-child section::after {
+    position: absolute;
+    right: -24px;
+    margin-top: -40px;
+    vertical-align: text-top;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #e8e8e8;
+    border: 1px solid #49afa4;
+    font-size: 40px;
+    display: block;
+    content: ''; }
+.vita .col:nth-child(2) section::after {
+  position: absolute;
+  left: -24px;
+  margin-top: -40px;
+  vertical-align: text-top;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #e8e8e8;
+  border: 1px solid #49afa4;
+  font-size: 40px;
+  display: block;
+  content: ''; }
+.vita h2 {
+  margin-bottom: 20px; }
+.vita section {
+  border: 1px solid #e8e8e8;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  transition: all 1s;
+  cursor: pointer; }
+  .vita section h5 {
+    margin: 0; }
+  .vita section p {
+    margin: 0; }
+.vita section:hover {
+  background-color: rgba(73, 175, 164, 0.6); }
+.vita section.active {
+  background-color: rgba(73, 175, 164, 0.6); }
+.vita section.active::after, .vita section:hover::after {
+  background-color: #49afa4 !important;
+  border: 1px solid #e8e8e8 !important;
+  z-index: 99 !important; }
+
+.certificates h1 {
+  margin-bottom: 80px; }
+.certificates h2 {
+  font-weight: 300; }
+.certificates .row {
+  margin: 20px 0; }
+
+.projects {
+  margin-top: 70px; }
+  .projects .pinned.col {
+    height: 520px; }
+    .projects .pinned.col figure {
+      height: 420px; }
+  .projects .col {
+    height: 320px;
+    margin: 10px 10px 20px 10px;
+    min-width: 30%; }
+    .projects .col figure {
+      margin: 0;
+      height: 220px;
+      width: 100%;
+      position: relative; }
+      .projects .col figure .edit {
+        opacity: 0;
+        background-color: rgba(73, 175, 164, 0.8);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all 1s; }
+        .projects .col figure .edit .btn {
+          background: none;
+          color: #e8e8e8;
+          border: 1px solid currentColor;
+          transition: all 1s;
+          border-radius: 50%;
+          padding: 20px 13px; }
+        .projects .col figure .edit .btn:hover {
+          background-color: #34495e; }
+        .projects .col figure .edit a {
+          position: relative;
+          left: 50%;
+          top: 50%;
+          margin-top: -10px;
+          transform: translate(-50%);
+          cursor: pointer; }
+      .projects .col figure img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%; }
+    .projects .col h5 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 18px; }
+    .projects .col span {
+      font-size: 12px; }
+    .projects .col .languages, .projects .col .frameworks {
+      margin: 0;
+      padding: 0; }
+      .projects .col .languages li, .projects .col .frameworks li {
+        display: inline;
+        margin-right: 5px;
+        background-color: #49afa4;
+        color: #e8e8e8;
+        padding: 5px;
+        font-weight: 300;
+        font-size: 8px;
+        border-radius: 10px; }
+      .projects .col .languages li:nth-child(7):after, .projects .col .frameworks li:nth-child(7):after {
+        content: "\A";
+        white-space: pre; }
+      .projects .col .languages li.frameworks, .projects .col .frameworks li.frameworks {
+        background-color: #34495e; }
+  .projects .col:hover figure .edit {
+    opacity: 1; }
 
 .fade {
   opacity: 1; }

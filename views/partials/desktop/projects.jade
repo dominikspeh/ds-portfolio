@@ -1,0 +1,40 @@
+.projects(ng-controller="PcProjectsCtrl")
+
+    .container
+        .row.flex-wrap
+            .col.pinned(ng-repeat="project in allProjects" ng-if="project.pinned == true")
+                figure
+                    .edit
+                        a.btn.btn-primary(ng-href="projects/{{project.alias}}") Show
+                    img(ng-src="{{project.thumbpath}}")
+                h5 {{project.name}}
+                span {{project.type}}
+
+                ul.languages
+                    li(ng-repeat="language in project.languages") {{language}}
+                    li.frameworks(ng-repeat="framework in project.frameworks") {{framework}}
+
+        .row.flex-wrap
+            .col(ng-repeat="project in allProjects", ng-if="project.pinned != true")
+                figure
+                    .edit
+                        a.btn.btn-primary(ng-href="projects/{{project.alias}}") Show
+                    img(ng-src="{{project.thumbpath}}")
+                h5 {{project.name}}
+                span {{project.type}}
+
+                ul.languages
+                    li(ng-repeat="language in project.languages") {{language}}
+                    li.frameworks(ng-repeat="framework in project.frameworks") {{framework}}
+
+
+
+
+
+include layout/navigation
+
+script.
+
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }

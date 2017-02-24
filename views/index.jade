@@ -9,10 +9,11 @@ html(ng-app='ds')
               link(href='https://fonts.googleapis.com/css?family=Lora:700', rel='stylesheet')
               link(rel='stylesheet', type='text/css', href='/scss/libs/jquery.fullpage.min.css')
               link(rel='stylesheet', type='text/css', href='/scss/libs/jquery.circliful.css')
-
-
+              link(rel='stylesheet', type='text/css', href='/scss/libs/loading-bar.min.css')
               link(href='/scss/animate.css', rel='stylesheet')
               link(href='/scss/font-awesome.min.css', rel='stylesheet')
+              link(href='/scss/ionicons.min.css', rel='stylesheet')
+
               link(ng-href='/scss/{{deviceType}}/style.css', rel='stylesheet')
 
 
@@ -21,6 +22,7 @@ html(ng-app='ds')
 
 
        // scripts loaded here
+
        script(src='/bower_components/jquery/dist/jquery.min.js')
        script(src='/js/checkDevice.js')
 
@@ -30,6 +32,12 @@ html(ng-app='ds')
        script(src='/bower_components/angular-animate/angular-animate.js')
        script(src='/bower_components/angular-resource/angular-resource.js')
        script(src='/bower_components/angular-google-analytics/dist/angular-google-analytics.js')
+       script(src='/bower_components/ngmap/build/scripts/ng-map.min.js')
+       script(type='text/javascript', src='/js/libs/loading-bar.min.js')
+       script(src='https://maps.googleapis.com/maps/api/js?key=#{process.env.GoogleMapsAPI}')
+
+
+
 
 
        // SOCKET
@@ -37,6 +45,7 @@ html(ng-app='ds')
        script(src='/socket.io/socket.io.js')
 
        // BOOTSTRAP
+       script(src='https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js')
        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
 
        script(type='text/javascript', src='/js/libs/jquery.fullpage.min.js')
@@ -53,6 +62,7 @@ html(ng-app='ds')
 
        script.
               var socket = io();
+
 
 
 

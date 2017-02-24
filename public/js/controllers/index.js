@@ -15,8 +15,9 @@ controller('HeadCtrl', function ($scope, socket, $location) {
     });
 }).
 // global controller
-controller('GlobalCtrl', function($scope, $timeout,$rootScope,$location, socket, $window) {
+controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $location, socket, $window) {
     $scope.showMobileNav = false;
+    $scope.$route = $route;
 
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path();
@@ -32,6 +33,9 @@ controller('GlobalCtrl', function($scope, $timeout,$rootScope,$location, socket,
 
     $scope.goToAbout = function () {
         $location.path('/ds/about');
+    }
+    $scope.goToProjects = function () {
+        $location.path('/ds/projects');
     }
 
 

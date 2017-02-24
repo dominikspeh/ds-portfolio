@@ -1,0 +1,14 @@
+.projectdetails(ng-controller="PcProjectDetailsCtrl")
+
+    .container.text-center
+        h1.big {{project.name}}
+
+
+
+include layout/navigation
+
+script.
+
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }

@@ -39,16 +39,66 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window) {
 
 }).
 controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window) {
-$scope.activeSkill = 0;
-
-$scope.showSkill = function (area) {
-   $scope.activeSkill = area;
-   drawAll();
-
-}
+    $scope.activeSkill = 0;
+    $scope.activeVita = 0;
 
 
+    $scope.showSkill = function (area) {
+       $scope.activeSkill = area;
+       drawAll();
+    }
 
+    $scope.showVita = function (area) {
+        $scope.activeVita = area;
+    }
+
+}).
+controller('PcMapCtrl', function($scope, NgMap) {
+    $scope.coordinates = {
+        lat: "49.348915",
+        lng: "9.129383",
+    };
+
+    $scope.setCoordinates = function (lat,lng,nr) {
+        $scope.coordinates.lat = lat;
+        $scope.coordinates.lng = lng;
+        $('.gmap').animateCss('fadeIn');
+
+
+    };
+
+    NgMap.getMap().then(function(map) {
+            var styles = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#6195a0"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#e6f3d6"},{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#f4d2c5"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#f4f4f4"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#eaf6f8"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#eaf6f8"}]}];
+            map.setOptions({styles: styles, scrollwheel: false,});
+            map.data.setStyle(styles);
+
+    });
+}).
+controller('PcProjectsCtrl', function ($scope, $http) {
+
+    $scope.allProjects = "";
+
+    $http.get('/api//json/get/projects').then(function (res) {
+        $scope.allProjects = res.data
+
+    });
+
+
+}).
+controller('PcProjectDetailsCtrl', function ($scope, $route, $http) {
+
+    var config = {
+        data:  $route.current.params.alias,
+        params: {alias: $route.current.params.alias}
+    }
+
+
+    $scope.project = "";
+
+    $http.get('/api//json/get/project/detail',config).then(function (res) {
+        $scope.project = res.data
+
+    });
 
 
 });

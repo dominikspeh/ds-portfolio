@@ -2,13 +2,19 @@
 
 body {
   background-color: $background;
+}
+.ds {
   padding-right: 80px;
-  padding-top: 67px;
 }
 
 a {
   color: $brand-primary;
   transition: all 1s;
+
+  i {
+    color: $brand-primary;
+
+  }
 }
 a:hover {
   color: $secondary-color
@@ -19,8 +25,13 @@ hr {
   width: 25%;
 }
 
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4,h5,i,p {
   color: $secondary-color
+}
+.dark {
+  h1,h2,h3,h4,h5,p,span,i {
+    color: $background
+  }
 }
 
 h1.big {
@@ -44,6 +55,20 @@ section.ds {
   background-color: $brand-primary;
   text-align: center;
 
+  .back {
+    position: absolute;
+    top:67px;
+    font-size: 25px;
+    border-bottom: 1px solid $background;
+  }
+
+  .currentPage {
+    font-size: 12px;
+    color: $background;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
 
   i.nav {
     font-size: 26px;
@@ -67,7 +92,7 @@ section.ds {
     display: block;
   }
 
-  i:hover, i.active {
+  span:hover i, span.active i, i:hover {
     background-color: $secondary-color;
     color: white;
   }
@@ -216,14 +241,14 @@ section.ds {
 }
 
 .section {
-  padding-bottom: 65px;
+ // padding-bottom: 65px;
 }
 .scroll {
   width: 100px;
   position: fixed;
   bottom: 10px;
   left: 50%;
-  margin-left: -78px;
+  margin-left: -83px;
   text-align: center;
 
   img {
@@ -236,7 +261,6 @@ section.ds {
   }
 }
 .container {
-  padding-right: 80px;
 
   .heading {
     font-size: 18px;
@@ -262,6 +286,237 @@ section.ds {
 
 }
 
+.skills {
+  h5 {
+    font-weight: 300;
+    margin-bottom: 3px;
+  }
+  p {
+    color: $background;
+    font-weight: 300;
+    font-size: 12px;
+    margin-top: 0;
+  }
+}
+
+
+// VITA
+.height100vh {
+  height: 100vh;
+}
+.map {
+  position: absolute;
+  top: 0;
+  left:0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9;
+}
+.map.overlay {
+  z-index: 10;
+  background-color: rgba(52,73,95,0.8);
+}
+.vita {
+
+  section {
+    position: relative;
+  }
+  .col:first-child {
+    border-right:1px solid $brand-primary;
+
+    section::after {
+      position: absolute;
+      right:-24px;
+      margin-top: -40px;
+      vertical-align: text-top;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: $background;
+      border: 1px solid $brand-primary;
+      font-size: 40px;
+      display: block;
+      content: '';
+    }
+  }
+  .col:nth-child(2) {
+
+
+    section::after {
+      position: absolute;
+      left:-24px;
+      margin-top: -40px;
+      vertical-align: text-top;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: $background;
+      border: 1px solid $brand-primary;
+      font-size: 40px;
+      display: block;
+      content: '';
+    }
+  }
+
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  section {
+    border: 1px solid $background;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    transition: all 1s;
+    cursor: pointer;
+
+    h5 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  section:hover {
+    background-color: rgba(73,175,164, 0.6)
+  }
+  section.active {
+    background-color: rgba(73,175,164, 0.6)
+  }
+
+  section.active::after, section:hover::after {
+    background-color: $brand-primary!important;
+    border: 1px solid $background!important;
+    z-index: 99!important;
+  }
+}
+
+.certificates {
+  h1 {
+    margin-bottom: 80px;
+  }
+
+  h2 {
+    font-weight: 300;
+  }
+  .row {
+    margin: 20px 0;
+  }
+}
+
+.projects {
+  margin-top: 70px;
+
+  .pinned.col {
+    figure {
+      height: 420px;
+
+    }
+    height: 520px;
+  }
+
+  .col {
+    height: 320px;
+    margin: 10px 10px 20px 10px;
+    min-width: 30%;
+
+
+    figure {
+      margin: 0;
+      height:220px;
+      width: 100%;
+      position: relative;
+
+      .edit {
+        opacity: 0;
+        background-color: rgba(73,175,164, 0.8);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all 1s;
+
+        .btn {
+          background: none;
+          color: $background;
+          border: 1px solid currentColor;
+          transition: all 1s;
+          border-radius: 50%;
+          padding:20px 13px;
+        }
+        .btn:hover {
+          background-color: $secondary-color;
+
+        }
+
+        a {
+          position: relative;
+          left: 50%;
+          top: 50%;
+          margin-top: -10px;
+          transform: translate(-50%);
+          cursor: pointer;
+        }
+
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+
+    }
+
+    h5 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 18px;
+
+    }
+    span {
+      font-size: 12px;
+    }
+
+    .languages, .frameworks {
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline;
+        margin-right: 5px;
+        background-color: $brand-primary;
+        color: $background;
+        padding: 5px;
+        font-weight: 300;
+        font-size: 8px;
+        border-radius: 10px;
+      }
+      li:nth-child(7):after {
+        content: "\A";
+        white-space: pre;
+
+      }
+      li.frameworks {
+        background-color: $secondary-color;
+
+      }
+    }
+
+
+
+  }
+
+
+  .col:hover {
+    figure .edit {
+      opacity: 1;
+    }
+  }
+
+}
 
 
 .fade {

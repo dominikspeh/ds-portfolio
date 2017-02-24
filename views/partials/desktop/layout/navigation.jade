@@ -1,10 +1,30 @@
+
 aside.navigation
+
     i.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}")
-    .current
-        i.fa.fa-angle-left(ng-if="isActive('/ds/about')", ng-click="historyBack()")
-        i.fa.fa-male.active(ng-if="isActive('/ds/about')", ng-click="moveTo(1)")
-        i.fa.fa-cogs(ng-if="isActive('/ds/about')", ng-click="moveTo(2)")
-        i.fa.fa-list-ol(ng-if="isActive('/ds/about')", ng-click="moveTo(3)")
+    i.fa.fa-angle-left.back(ng-if="!isActive('/')", ng-click="historyBack()")
+
+
+    .current(ng-controller="PcProjectDetailsCtrl")
+        span.currentPage {{$route.current.title || project.name}}
+
+        // ABOUT
+        span(data-toggle='tooltip', data-placement='left', title='About')
+            i.fa.fa-male.active(ng-if="isActive('/ds/about')", ng-click="moveTo(1)")
+        span(data-toggle='tooltip', data-placement='left', title='Skills')
+            i.fa.fa-cogs(ng-if="isActive('/ds/about')", ng-click="moveTo(2)")
+        span(data-toggle='tooltip', data-placement='left', title='Vita')
+            i.fa.fa-list-ol(ng-if="isActive('/ds/about')", ng-click="moveTo(3)")
+        span(data-toggle='tooltip', data-placement='left', title='Certificates')
+            i.fa.fa-certificate(ng-if="isActive('/ds/about')", ng-click="moveTo(4)")
+
+        // Projects
+        span(data-toggle='tooltip', data-placement='left', title='Filter')
+            i.fa.fa-filter(ng-if="isActive('/ds/projects')")
+
+
+
+
     i.fa.mobile.fa-mobile-phone(ng-click="showMobileNav = !showMobileNav ; showNavigation = false", ng-class="{'active':showMobileNav}")
 
 .naviContainer.fade(ng-show="showNavigation")
@@ -16,7 +36,8 @@ aside.navigation
                 a(href="#", ng-class="{ active: isActive('/ds/about')}", ng-click="goToAbout()") About me
 
             li
-                a(href="#") Projects
+                a(href="#", ng-class="{ active: isActive('/ds/projects')}", ng-click="goToProjects()") Projects
+
             li
                 a(href="#") Blog
             li
@@ -39,6 +60,9 @@ aside.navigation
         .col
             p {{ code1 }} {{ code2 }} {{ code3 }} {{ code4 }}
 
-.scroll
-    img.scrolldown(src="/img/scrolldown.gif")
-    span SCROLL
+
+script.
+    //ENABLE TOOLTIPS
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });

@@ -3,18 +3,18 @@
 
         #fullpage
             #section0.section
-                .container
+                .container.text-center
 
                     .row
                         .col.text-center.box.left
 
                             img.profile(src="/img/dominikspeh.jpg")
 
-                        .col.box.right
+                        .col.box.right.text-center
 
-                            h1 Dominik Speh
+                            h1
+                                | Dominik Speh
                             p.lead mail@domi-speh.de
-
 
                             .social
                                 .row
@@ -38,9 +38,40 @@
 
 
 
+
+
+                            hr.social
+
+                            .social
+                                .row
+                                    .col
+                                        i.ion-ios-football(data-toggle="tooltip" data-placement="top" title="VfB Stuttgart")
+                                    .col
+                                        i.ion-ios-americanfootball(data-toggle="tooltip" data-placement="top" title="Denver Broncos")
+
+                                    .col
+                                        i.fa.fa-cutlery(data-toggle="tooltip" data-placement="top" title="Cooking")
+
+                                    .col
+                                        i.ion-ios-pint(data-toggle="tooltip" data-placement="top" title="German beer")
+                                    .col
+                                        i.ion-music-note(data-toggle="tooltip" data-placement="top" title="Making music")
+                                    .col
+                                        i.ion-videocamera(data-toggle="tooltip" data-placement="top" title="Recording and cutting")
+                                    .col
+                                        i.ion-social-apple(data-toggle="tooltip" data-placement="top" title="Apple")
+
+
+
+
+
+
+
+
+
             #section1.section
 
-                .container.text-center
+                .container.text-center.skills
                     h1.big Skills
                     .bar
                         span.btn.btn-primary.btn-sm(ng-click="showSkill(0)",ng-class="{'active':activeSkill==0}") Languages
@@ -51,79 +82,197 @@
                         .col.text-center
                             #skill-js.circle()
                             h5 Javascript
+                            p 9 / 10
 
                         .col.text-center
                             #skill-php.circle()
                             h5 PHP
+                            p 6 / 10
 
                         .col.text-center
                             #skill-html.circle()
                             h5 HTML
+                            p 10 / 10
 
                         .col.text-center
                             #skill-css.circle()
                             h5 CSS
+                            p 10 / 10
+
 
                     .row.frameworks(ng-show="activeSkill == 1")
                         .col.text-center
                             #skill-node.circle()
                             h5 Node.js
+                            p 7 / 10
 
                         .col.text-center
                             #skill-angular.circle()
                             h5 Angular.js
+                            p 5 / 10
 
                         .col.text-center
                             #skill-ionic.circle()
-                            h5 Ionic
+                            h5 Ionic & Cordova
+                            p 4 / 10
 
                         .col.text-center
                             #skill-react.circle()
                             h5 React
+                            p 2 / 10
 
                     .row.others(ng-show="activeSkill == 2")
                         .col.text-center
                             #skill-design.circle()
                             h5 Web Design
+                            p 9 / 10
 
                         .col.text-center
                             #skill-ux.circle()
                             h5 UX
+                            p 7 / 10
 
                         .col.text-center
                             #skill-photo.circle()
                             h5 Photographie
+                            p 7 / 10
 
                         .col.text-center
                             #skill-music.circle()
                             h5 Music production
+                            p 5 / 10
 
 
 
-            #section2.section
-                .container
+            #section2.section(ng-controller="PcMapCtrl")
+                ng-map.map.gmap(zoom="10",center='[{{coordinates.lat}}, {{coordinates.lng}}]')
+                    marker(position='[{{coordinates.lat}}, {{coordinates.lng}}]')
+
+                .overlay.map.dark
+                    .container.text-center
+                        .row.flex-column.justify-content-center.height100vh
+                            h1.big Vita
+
+
+                            .row.vita.align-content-center.align-items-center
+                                .col
+                                    h2
+                                        i.fa.fa-graduation-cap
+                                        |  School
+
+                                    section(ng-click="setCoordinates('48.016016','9.250637')",ng-class="{'active': coordinates.lng == '9.250637' }")
+                                        h5 1998 - 2002
+                                        p Sophie-Scholl-Schule Krauchenwies
+                                        p
+                                            strong Grundschule
+
+                                    section(ng-click="setCoordinates('48.091292','9.228612')",ng-class="{'active': coordinates.lng == '9.228612' }")
+
+                                        h5 2002 - 2011
+                                        p Hohenzollern-Gymnasium Sigmaringen
+                                        p
+                                            strong Abitur
+
+                                    section(ng-click="setCoordinates('49.006890','8.403653')",ng-class="{'active': coordinates.lng == '8.403653' }")
+
+                                        h5 2011 - 2013
+                                        p Carl-Hofer-Schule Karlsruhe
+                                        p
+                                            strong Ausbildung Mediengestalter
+
+                                    section(style="margin-top:132px",ng-click="setCoordinates('49.348915','9.129383')",ng-class="{'active': coordinates.lng == '9.129383' }")
+
+                                        h5 Apr. 2014 - today
+                                        p DHBW Mosbach
+                                        p
+                                            strong Bachelor of Arts - Onlinemedia
+
+
+
+
+                                .col
+                                    h2
+                                        i.fa.fa-briefcase
+                                        |  Work
+
+                                    section(style="margin-top: 243px",ng-click="setCoordinates('49.006890','8.403653')",ng-class="{'active': coordinates.lng == '8.403653' }")
+                                        h5 Aug. 2011 - Jun. 2013
+                                        p 2k kreativkonzept
+                                        p
+                                            strong
+                                                | Ausbildung Mediengestalter
+
+                                    section(ng-click="setCoordinates('49.006890','8.403653')",ng-class="{'active': coordinates.lng == '8.403653' }")
+
+                                        h5 Jul. 2013 - Apr. 2014
+                                        p 2k kreativkonzept
+                                        p
+                                            strong
+                                                | Web Developer
+
+                                    section(ng-click="setCoordinates('49.133735','10.063357')",ng-class="{'active': coordinates.lng == '10.063357' }")
+
+                                        h5 Apr. 2014 - today
+                                        p Werbeagentur querformat
+                                        p
+                                            strong Dualer Student - Web/App Developer
+            #section3.section.certificates
+                .container.text-center
+                    h1.big
+                        i.fa.fa-certificate
+                        br
+                        |  Certificates / Qualifications
+
                     .row
                         .col
-                            h1 Test
+                            h2 Ausbilder-Eignungsprüfung 2017
+
+                    .row
                         .col
+                            h2 SPSS Workshop 2017
+
+                    .row
+                        .col
+                            h2 HTML5 / Angular / JavaScript Days Berlin 2016
+
+                    .row
+                        .col
+                            h2 Musikmentoren Ausbildung
 
 
-        include layout/navigation
+
+
+
+.scroll
+    img.scrolldown(src="/img/scrolldown.gif")
+    span SCROLL
+
+
+include layout/navigation
 
     script.
+
+        //ENABLE TOOLTIPS
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        // ACTIVE FULLPAGE
         if ($('html').hasClass('fp-enabled')) {
             $.fn.fullpage.destroy('all');
         }
         $('#fullpage').fullpage({
-            sectionsColor: ['#e8e8e8', '#49afa4', '#34495e'],
+            sectionsColor: ['#e8e8e8', '#49afa4', '#34495e','#e8e8e8'],
 
             afterLoad: function (anchorLink, index) {
 
                 if(index == 1){
+                    $(".skills, .overlay").hide();
                     $(".social").css("opacity","0");
                     $(".left, .right").show();
                     $('.left').animateCss('fadeInLeft');
                     $('.right').animateCss('fadeInRight');
+
 
                     setTimeout(function () {
                         $(".social").css("opacity","1");
@@ -132,24 +281,45 @@
                 }
 
                 if (index == 2) {
+                    $('.skills').show().animateCss('fadeInUp');
                     drawAll();
+                    $(".overlay").hide();
+
 
                 }
 
 
+                if (index == 3) {
+                    $('.overlay').show().animateCss('fadeInDown');
+                }
+                if (index != 4){
+                    $(".scroll").show().animateCss('fadeInUp');
+                }
+                if(index == 4){
+                    $(".scroll").hide();
+
+                }
+
+
+
                 index = index+1
 
-                $(".current i").removeClass("active");
-                $(".current i:nth-child(" + index + ")").addClass("active");
+                $(".current span").removeClass("active");
+                $(".current span:nth-child(" + index + ")").addClass("active");
 
             },
             onLeave: function (index, nextIndex, direction) {
+                $(".scroll").hide();
+
+
+                if(nextIndex == 1){
+                    $(".left, .right").hide();
+                }
 
                 if(nextIndex == 2){
+                    $(".skills").hide();
                     $('.left').animateCss('fadeOutLeft');
-                    $('.right').animateCss('fadeOutRight', function () {
-                        console.log("as")
-                    });
+                    $('.right').animateCss('fadeOutRight');
 
 
 
@@ -173,7 +343,7 @@
             draw('skill-js', 'a', {
                 animation: 1,
                 animationStep: 6,
-                percent: 80,
+                percent: 88,
                 foregroundBorderWidth: 7,
                 backgroundBorderWidth: 1,
                 replacePercentageByText: "",
@@ -355,7 +525,7 @@
                 noPercentageSign: true,
                 fontColor: '',
                 iconColor: '#e8e8e8',
-                icon: 'f004',
+                icon: 'f0c0',
                 text: "UX",
                 textColor: '#e8e8e8',
                 textStyle: 'margin-top:20px',
@@ -374,7 +544,7 @@
                 noPercentageSign: true,
                 fontColor: '',
                 iconColor: '#e8e8e8',
-                icon: 'f004',
+                icon: 'f001',
                 text: "Music",
                 textColor: '#e8e8e8',
                 textStyle: 'margin-top:20px',
@@ -393,7 +563,7 @@
                 noPercentageSign: true,
                 fontColor: '',
                 iconColor: '#e8e8e8',
-                icon: 'f004',
+                icon: 'f03e',
                 text: "Photo",
                 textColor: '#e8e8e8',
                 textStyle: 'margin-top:20px',

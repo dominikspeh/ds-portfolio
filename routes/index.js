@@ -16,5 +16,12 @@ router.get('/ds/about', function(req, res) {
     var code = req.params.code;
     res.render('index', {});
 });
-
+router.get('/ds/projects', function(req, res) {
+    var code = req.params.code;
+    res.render('index', {});
+});
+router.get('/ds/projects/:alias', function(req, res) {
+    var code = req.params.code;
+    res.render('index', {});
+});
 module.exports = router;
