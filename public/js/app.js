@@ -30,6 +30,15 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
     }).
     when('/ds/success', {
         templateUrl: '/partials/' + window.deviceType + '/success'
+    }).
+    when('/ds/contact', {
+        templateUrl: '/partials/' + window.deviceType + '/contact'
+    }).
+    when('/ds/imprint', {
+        templateUrl: '/partials/' + window.deviceType + '/imprint'
+    }).
+    when('/ds/privacy', {
+        templateUrl: '/partials/' + window.deviceType + '/privacy'
     })
 
     $locationProvider.html5Mode({

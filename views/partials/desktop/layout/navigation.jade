@@ -46,10 +46,10 @@ aside.navigation
             li
                 a(href="#", ng-class="{ active: isActive('/ds/projects')}", ng-click="goToProjects()") Projects
 
-            li
+            //li
                 a(href="#") Blog
             li
-                a(href="#") Contact
+                a(href="#",ng-click="goToContact()") Contact
     .imprint
         ul
             li

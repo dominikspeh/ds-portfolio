@@ -1,0 +1,16 @@
+
+.contact(ng-controller="PcContactCtrl")
+
+    .container
+        h1.big Imprint
+        .row.flex-wrap
+
+
+
+include layout/navigation
+
+script.
+
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }

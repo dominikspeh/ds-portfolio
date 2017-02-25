@@ -29,20 +29,36 @@ controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $locatio
     };
     $scope.goToHome = function () {
         $location.path('/');
-    }
+    };
 
     $scope.goToAbout = function () {
         $location.path('/ds/about');
-    }
+    };
+
     $scope.goToProjects = function () {
         $location.path('/ds/projects');
-    }
+    };
+
+    $scope.goToContact = function () {
+        $location.path('/ds/contact');
+    };
+
+    $scope.goToImprint = function () {
+        $location.path('/ds/imprint');
+    };
+
+    $scope.goToPrivacy = function () {
+        $location.path('/ds/privacy');
+    };
 
 
     // SUBNAV
     $scope.moveTo = function (id) {
         $.fn.fullpage.moveTo(id);
     };
+
+
+
 
 
 

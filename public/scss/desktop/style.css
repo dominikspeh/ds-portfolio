@@ -46,6 +46,10 @@ h1.big {
 section.ds {
   height: 100%; }
 
+#fullpage {
+  opacity: 0;
+  transition: all 1s; }
+
 .navigation {
   position: fixed;
   border-left: 1px solid white;
@@ -422,8 +426,6 @@ section.ds {
   background-repeat: no-repeat;
   background-size: 75px;
   background-position: top left; }
-.projectdetails .process .circle:hover {
-  background-color: #49afa4; }
 .projectdetails .process .circle.active {
   background-color: #49afa4; }
 .projectdetails .process .circle {
@@ -467,6 +469,9 @@ section.ds {
     font-size: 24px;
     margin-top: -10px;
     font-weight: 300; }
+
+.contact form {
+  width: 80%; }
 
 .fade {
   opacity: 1; }

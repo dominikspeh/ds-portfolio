@@ -2,8 +2,6 @@
 $(document).ready(function() {
 
 
-// ACTIVE FULLPAGE
-
 
 
     $.fn.extend({

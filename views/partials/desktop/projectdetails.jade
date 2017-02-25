@@ -29,7 +29,7 @@
 
 
         #section1.section.dark(ng-if="project.process.length > 0")
-            h1.big.text-center Process
+            h1.big.text-center Workflow
             .row.process.text-center.align-content-center.align-items-center.justify-content-center(style="margin-top:70px")
                 .col.dark(ng-repeat="process in project.process")
                     .circle.circle-border
@@ -50,7 +50,7 @@
                     #carouselExampleIndicators.carousel.slide(data-ride='carousel')
                         .carousel-inner(role='listbox')
                             .carousel-item(ng-repeat="galerie in project.galerie", ng-class="{'active': $index == 0 }")
-                                img(ng-src="/img/projects/leader-oberschwaben/galerie/{{galerie}}")
+                                img(ng-src="{{galerie}}")
 
 
                 .col-md-3.projectlink
@@ -113,7 +113,7 @@ script.
 
                 });
             }
-            if (index == 3) {
+            if (index == 3 || $(".section").length == 2) {
                 $(".galeriebox,.projectlink").show();
                 $('.galeriebox').animateCss('fadeInLeft');
                 $('.projectlink').animateCss('fadeInUpBig');

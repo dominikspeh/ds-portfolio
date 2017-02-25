@@ -52,6 +52,81 @@ controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window)
         $scope.activeVita = area;
     }
 
+    // FULLPAGE
+    $timeout(function () {
+        $("#fullpage").css("opacity", "1");
+        // ACTIVE FULLPAGE
+        if ($('html').hasClass('fp-enabled')) {
+            $.fn.fullpage.destroy('all');
+        }
+        $('#fullpage').fullpage({
+            sectionsColor: ['#e8e8e8', '#49afa4', '#34495e', '#e8e8e8'],
+
+            afterLoad: function (anchorLink, index) {
+
+                if (index == 1) {
+                    $(".skills, .overlay").hide();
+                    $(".social").css("opacity", "0");
+                    $(".left, .right").show();
+                    $('.left').animateCss('fadeInLeft');
+                    $('.right').animateCss('fadeInRight');
+
+
+                    setTimeout(function () {
+                        $(".social").css("opacity", "1");
+                        $('.social').animateCss('fadeInUp');
+                    }, 1000)
+                }
+
+                if (index == 2) {
+                    $('.skills').show().animateCss('fadeInUp');
+                    drawAll();
+                    $(".overlay").hide();
+
+
+                }
+
+
+                if (index == 3) {
+                    $('.overlay').show().animateCss('fadeInDown');
+                }
+                if (index != 4) {
+                    $(".scroll").show().animateCss('fadeInUp');
+                }
+                if (index == 4) {
+                    $(".scroll").hide();
+
+                }
+
+
+                index = index + 1
+
+                $(".current span").removeClass("active");
+                $(".current span:nth-child(" + index + ")").addClass("active");
+
+            },
+            onLeave: function (index, nextIndex, direction) {
+                $(".scroll").hide();
+
+
+                if (nextIndex == 1) {
+                    $(".left, .right").hide();
+                }
+
+                if (nextIndex == 2) {
+                    $(".skills").hide();
+                    $('.left').animateCss('fadeOutLeft');
+                    $('.right').animateCss('fadeOutRight');
+
+
+                }
+            }
+
+
+        })
+    },0)
+
+
 }).
 controller('PcMapCtrl', function($scope, NgMap) {
     $scope.coordinates = {
@@ -99,6 +174,32 @@ controller('PcProjectDetailsCtrl', function ($scope, $route, $http) {
         $scope.project = res.data
 
     });
+
+
+}).
+controller('PcContactCtrl', function ($timeout, $scope, $route, $http) {
+
+$timeout(function () {
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }
+    $("#fullpage").css("opacity", "1");
+
+    $('#fullpage').fullpage({
+        sectionsColor: ['#e8e8e8', '#34495e', '#ffffff', '#e8e8e8'],
+
+        afterLoad: function (anchorLink, index) {
+
+
+        },
+        onLeave: function (index, nextIndex, direction) {
+
+
+        }
+
+
+    });
+},0)
 
 
 });

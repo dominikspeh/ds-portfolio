@@ -1,0 +1,35 @@
+
+.contact(ng-controller="PcContactCtrl")
+
+    #fullpage
+        #section0.section
+            .container.text-center
+                h1.big Contact
+                .row.center(style="margin-top:70px")
+                    .col.box
+                        form
+                            .form-group.row
+                                label.col-md-2.col-form-label(for='inputName') Name
+                                .col-md-10
+                                    input#inputName.form-control(type='name', placeholder='Your name')
+                            .form-group.row
+                                label.col-md-2.col-form-label(for='inputEmail3') Email
+                                .col-md-10
+                                    input#inputEmail3.form-control(type='email', placeholder='Your email address')
+
+                            .form-group.row
+                                label.col-md-2.col-form-label(for='exampleTextarea') Message
+                                .col-md-10
+                                    textarea#exampleTextarea.form-control(rows='3') Your message
+
+
+                            .form-group.pull-right
+
+                                button.btn.btn-primary(type='submit') Send
+
+
+
+
+include layout/navigation
+
+script.

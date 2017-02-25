@@ -47,6 +47,11 @@ section.ds {
   height: 100%;
 }
 
+#fullpage {
+  opacity: 0;
+  transition: all 1s;
+}
+
 // NAVIGATION
 .navigation {
   position: fixed;
@@ -598,9 +603,7 @@ section.ds {
 
    }
 
-    .circle:hover {
-      background-color: $brand-primary;
-    }
+
     .circle.active {
       background-color: $brand-primary;
 
@@ -664,6 +667,12 @@ section.ds {
   }
 }
 
+// CONTACT
+.contact {
+  form {
+    width: 80%;
+  }
+}
 
 .fade {
   opacity: 1;
