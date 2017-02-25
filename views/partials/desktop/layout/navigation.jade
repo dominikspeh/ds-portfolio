@@ -6,22 +6,30 @@ aside.navigation
 
 
     .current(ng-controller="PcProjectDetailsCtrl")
-        span.currentPage {{$route.current.title || project.name}}
+        p.currentPage {{$route.current.title || project.name}}
 
         // ABOUT
-        span(data-toggle='tooltip', data-placement='left', title='About')
-            i.fa.fa-male.active(ng-if="isActive('/ds/about')", ng-click="moveTo(1)")
-        span(data-toggle='tooltip', data-placement='left', title='Skills')
-            i.fa.fa-cogs(ng-if="isActive('/ds/about')", ng-click="moveTo(2)")
-        span(data-toggle='tooltip', data-placement='left', title='Vita')
-            i.fa.fa-list-ol(ng-if="isActive('/ds/about')", ng-click="moveTo(3)")
-        span(data-toggle='tooltip', data-placement='left', title='Certificates')
-            i.fa.fa-certificate(ng-if="isActive('/ds/about')", ng-click="moveTo(4)")
+        span(data-toggle='tooltip', data-placement='left', title='About', ng-if="isActive('/ds/about')", ng-click="moveTo(1)")
+            i.fa.fa-male
+        span(data-toggle='tooltip', data-placement='left', title='Skills', ng-if="isActive('/ds/about')", ng-click="moveTo(2)")
+            i.fa.fa-cogs
+        span(data-toggle='tooltip', data-placement='left', title='Vita', ng-if="isActive('/ds/about')", ng-click="moveTo(3)")
+            i.fa.fa-list-ol
+        span(data-toggle='tooltip', data-placement='left', title='Certificates', ng-if="isActive('/ds/about')", ng-click="moveTo(4)")
+            i.fa.fa-certificate
 
         // Projects
-        span(data-toggle='tooltip', data-placement='left', title='Filter')
-            i.fa.fa-filter(ng-if="isActive('/ds/projects')")
+        span(data-toggle='tooltip', data-placement='left', title='Filter',ng-if="isActive('/ds/projects')")
+            i.fa.fa-filter()
 
+
+        // Project Details
+        span.active(data-toggle='tooltip', data-placement='left', title='Project informations', ng-if="project.name",ng-click="moveTo(1)")
+            i.fa.fa-info
+        span(data-toggle='tooltip', data-placement='left', title='Process', ng-if="project.process.length > 0",ng-click="moveTo(2)")
+            i.ion-loop
+        span(data-toggle='tooltip', data-placement='left', title='Galerie', ng-if="project.galerie.length > 0",ng-click="moveTo(3)")
+            i.ion-images
 
 
 
@@ -61,8 +69,3 @@ aside.navigation
             p {{ code1 }} {{ code2 }} {{ code3 }} {{ code4 }}
 
 
-script.
-    //ENABLE TOOLTIPS
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });

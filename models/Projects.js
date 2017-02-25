@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const projectsSchema = new mongoose.Schema({
     name: "String",
     alias: "String",
+    url: "String",
     type: "String",
     description: "String",
     motivation: "String",
@@ -15,6 +16,7 @@ const projectsSchema = new mongoose.Schema({
     pinned: Boolean,
     languages: Array,
     frameworks: Array,
+    process: Array,
     comments: [
         {
             name: String,

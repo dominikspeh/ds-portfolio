@@ -10,6 +10,7 @@
                         img(ng-src="{{project.image}}")
                     .col-md-4.text-center
                         h5 {{project.type}}
+                        p.lead {{project.time}}
                         hr
                         p {{project.description}}
 
@@ -27,34 +28,115 @@
 
 
 
-        #section1.section
-            .container.text-center
+        #section1.section.dark(ng-if="project.process.length > 0")
+            h1.big.text-center Process
+            .row.process.text-center.align-content-center.align-items-center.justify-content-center(style="margin-top:70px")
+                .col.dark(ng-repeat="process in project.process")
+                    .circle.circle-border
+                        .circle-inner
+                            .score-text
 
-        #section2.section
-            .container.text-center
+                                p
+                                    strong {{$index+1}}.
+                                p {{process}}
 
 
 
-.scroll
-    img.scrolldown(src="/img/scrolldown.gif")
-    span SCROLL
+        #section2.section(ng-if="project.galerie.length > 0")
+            .row.galerie.text-center.align-content-center.align-items-center.justify-content-center
+                .col-md-1
+                .col-md-8.galeriebox.align-content-center.flex-column.align-items-center.justify-content-center
+                    img.imac(src="/img/imac.png")
+                    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+                        .carousel-inner(role='listbox')
+                            .carousel-item(ng-repeat="galerie in project.galerie", ng-class="{'active': $index == 0 }")
+                                img(ng-src="/img/projects/leader-oberschwaben/galerie/{{galerie}}")
+
+
+                .col-md-3.projectlink
+                    h4 {{project.type}}
+                    p.lead {{project.name}}
+                    hr
+                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank") Show live
+
+
+
+
+    .scroll(ng-show="project.galerie.length > 0")
+        img.scrolldown(src="/img/scrolldown.gif")
+        span SCROLL
 
 
 include layout/navigation
 
 script.
+    $(".galeriebox,.projectlink").hide();
+
 
     if ($('html').hasClass('fp-enabled')) {
         $.fn.fullpage.destroy('all');
     }
 
+
     $('#fullpage').fullpage({
-        sectionsColor: ['#e8e8e8', '#49afa4', '#34495e', '#e8e8e8'],
+        sectionsColor: ['#e8e8e8', '#34495e', '#ffffff', '#e8e8e8'],
 
         afterLoad: function (anchorLink, index) {
+            $(".process .col").clearQueue();
+            $(".languages").css("opacity", "0");
+            $(".col, .col .circle").removeClass("active");
+            $(".circle .score-text").hide();
+
+
+            if(index == 1){
+
+                setTimeout(function () {
+                    $(".galeriebox,.projectlink").hide();
+                    $(".languages").css("opacity", "1");
+                    $('.languages').animateCss('fadeInUp');
+
+                },1000)
+
+
+
+            }
+            if (index == 2) {
+                $(".process .col").each(function (index) {
+                    $(this).delay(800 * index).queue(function (next) {
+                        $(this).find(".circle").addClass("active");
+                        $(this).find(".circle .score-text").fadeIn();
+
+                        $(this).addClass("active");
+
+                        next();
+                    });
+
+                });
+            }
+            if (index == 3) {
+                $(".galeriebox,.projectlink").show();
+                $('.galeriebox').animateCss('fadeInLeft');
+                $('.projectlink').animateCss('fadeInUpBig');
+
+                $(".scroll").hide();
+
+            }
+
+            index = index + 1
+
+            $(".current span").removeClass("active");
+            $(".current span:nth-child(" + index + ")").addClass("active");
+
+
 
         },
         onLeave: function (index, nextIndex, direction) {
+            if(index == 3){
+                $('.galeriebox').animateCss('fadeOutLeft');
+                $('.projectlink').animateCss('fadeOutDownBig');
+
+
+            }
 
         }
 

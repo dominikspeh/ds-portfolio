@@ -7,8 +7,8 @@ $random: random(3);
 
 .btn-primary {
   background-color: $brand-primary;
-  color: $secondary-color;
-  border-color: $secondary-color;
+  color: $background;
+  border-color: $background;
 }
 .btn-primary.active {
   background-color: $secondary-color;
