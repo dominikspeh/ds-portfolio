@@ -9,37 +9,37 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
 
     $routeProvider.
     when('/', {
-        templateUrl: '/partials/' + window.deviceType + '/index'
+        templateUrl: '/partials/desktop/index'
     }).
     when('/:code', {
-        templateUrl: '/partials/' + window.deviceType + '/index'
+        templateUrl: '/partials/desktop/index'
     }).
     when('/ds/success', {
-        templateUrl: '/partials/' + window.deviceType + '/success'
+        templateUrl: '/partials/desktop/success'
     }).
     when('/ds/about', {
         title: 'About me',
-        templateUrl: '/partials/' + window.deviceType + '/about'
+        templateUrl: '/partials/desktop/about'
     }).
     when('/ds/projects', {
         title: 'Projects',
-        templateUrl: '/partials/' + window.deviceType + '/projects'
+        templateUrl: '/partials/desktop/projects'
     }).
     when('/ds/projects/:alias', {
-        templateUrl: '/partials/' + window.deviceType + '/projectdetails'
-    }).
-    when('/ds/success', {
-        templateUrl: '/partials/' + window.deviceType + '/success'
+        templateUrl: '/partials/desktop/projectdetails'
     }).
     when('/ds/contact', {
-        templateUrl: '/partials/' + window.deviceType + '/contact'
+        templateUrl: '/partials/desktop/contact'
     }).
     when('/ds/imprint', {
-        templateUrl: '/partials/' + window.deviceType + '/imprint'
+        templateUrl: '/partials/desktop/imprint'
     }).
     when('/ds/privacy', {
+        templateUrl: '/partials/desktop/privacy'
+    }).
+    when('/ds/test', {
         templateUrl: '/partials/' + window.deviceType + '/privacy'
-    })
+    });
 
     $locationProvider.html5Mode({
         enabled: true,

@@ -1,4 +1,20 @@
+header.topnavi.container.text-center(ng-show="!showNavigation")
 
+        .row
+            .col
+                ul
+                    li
+                        a(href="#", ng-class="{ active: isActive('/')}", ng-click="goToHome()") Home
+                    li
+                        a(href="#", ng-class="{ active: isActive('/ds/about')}", ng-click="goToAbout()") About me
+
+                    li
+                        a(href="#", ng-class="{ active: isActive('/ds/projects')}", ng-click="goToProjects()") Projects
+
+                    //li
+                        a(href="#") Blog
+                    li
+                        a(href="#",ng-click="goToContact()", ng-class="{ active: isActive('/ds/contact')}") Contact
 aside.navigation
 
     i.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}")
@@ -19,17 +35,24 @@ aside.navigation
             i.fa.fa-certificate
 
         // Projects
-        span(data-toggle='tooltip', data-placement='left', title='Filter',ng-if="isActive('/ds/projects')")
+        //span(data-toggle='tooltip', data-placement='left', title='Filter',ng-if="isActive('/ds/projects')")
             i.fa.fa-filter()
 
 
         // Project Details
+
         span.active(data-toggle='tooltip', data-placement='left', title='Project informations', ng-if="project.name",ng-click="moveTo(1)")
             i.fa.fa-info
         span(data-toggle='tooltip', data-placement='left', title='Process', ng-if="project.process.length > 0",ng-click="moveTo(2)")
             i.ion-loop
-        span(data-toggle='tooltip', data-placement='left', title='Galerie', ng-if="project.galerie.length > 0",ng-click="moveTo(3)")
+
+
+        span(data-toggle='tooltip', data-placement='left', title='Galerie', ng-if="project.galerie.length > 0 && project.process.length > 0",ng-click="moveTo(3)")
             i.ion-images
+
+        span(data-toggle='tooltip', data-placement='left', title='Galerie', ng-if="project.galerie.length > 0 && project.process.length == 0",ng-click="moveTo(2)")
+            i.ion-images
+
 
 
 
@@ -53,13 +76,13 @@ aside.navigation
     .imprint
         ul
             li
-                a(href="#") Impressum
+                a(href="/ds/imprint") Imprint
             li
-                a(href="#") Datenschutz
+                a(href="/ds/privacy") Privacy
 
 
 
-.mobileContainer.fade(ng-show="showMobileNav", ng-controller="PcCodeCtrl")
+.mobileContainer.fade.dark(ng-show="showMobileNav", ng-controller="PcCodeCtrl")
 
     .row.align-items-center.justify-content-around.align-content-center
         .col-12.col-md-auto

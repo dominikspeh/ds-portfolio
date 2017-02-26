@@ -1,7 +1,7 @@
 .projects(ng-controller="PcProjectsCtrl")
 
-    .container
-        .row.flex-wrap
+    .container(style="width:100%")
+        .row
             .col.pinned(ng-repeat="project in allProjects" ng-if="project.pinned == true")
                 figure
                     .edit
@@ -14,7 +14,7 @@
                     li(ng-repeat="language in project.languages") {{language}}
                     li.frameworks(ng-repeat="framework in project.frameworks") {{framework}}
 
-        .row.flex-wrap
+        .row
             .col(ng-repeat="project in allProjects", ng-if="project.pinned != true")
                 figure
                     .edit

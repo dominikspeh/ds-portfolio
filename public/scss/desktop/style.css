@@ -11,6 +11,10 @@
   color: #e8e8e8;
   border-color: #34495e; }
 
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #e8e8e8;
+  color: #34495e; }
+
 body {
   background-color: #e8e8e8; }
 
@@ -49,6 +53,35 @@ section.ds {
 #fullpage {
   opacity: 0;
   transition: all 1s; }
+
+.topnavi {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding-right: 80px;
+  z-index: 98; }
+  .topnavi ul {
+    margin: 2px 0 0 0;
+    padding: 0; }
+    .topnavi ul li {
+      padding: 0;
+      display: inline;
+      margin: 10px;
+      text-transform: uppercase;
+      font-weight: 300; }
+      .topnavi ul li a {
+        font-size: 10px;
+        background-color: #e8e8e8;
+        color: #34495e;
+        padding: 5px; }
+      .topnavi ul li a:hover {
+        background-color: #49afa4;
+        color: #e8e8e8; }
+      .topnavi ul li .active {
+        background-color: #49afa4;
+        color: #e8e8e8;
+        font-weight: 700; }
 
 .navigation {
   position: fixed;
@@ -470,8 +503,22 @@ section.ds {
     margin-top: -10px;
     font-weight: 300; }
 
+.contact ul {
+  padding-left: 0;
+  margin-left: 0; }
+  .contact ul li {
+    list-style: none;
+    color: #34495e; }
 .contact form {
   width: 80%; }
+.contact .ng-submitted {
+  display: none; }
+
+.contactbox .profile {
+  width: 120px;
+  margin-bottom: 20px; }
+.contactbox .social {
+  margin-bottom: 20px; }
 
 .fade {
   opacity: 1; }
@@ -488,5 +535,119 @@ section.ds {
 
 .fade.ng-hide-add {
   transition: all linear 500ms; }
+
+.mobileonly {
+  display: none; }
+
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: normal; }
+
+@media (max-width: 800px) {
+  .mobileonly {
+    display: block; }
+
+  h1.big {
+    font-size: 30px; }
+
+  h2 {
+    font-size: 20px; }
+
+  .topnavi {
+    display: none; }
+
+  .ds, .naviContainer {
+    padding-right: 40px; }
+
+  .scroll {
+    margin-left: -63px; }
+
+  .navigation {
+    width: 40px; }
+
+  .navigation i.mobile {
+    display: none; }
+
+  .container .row {
+    margin-top: 5px !important; }
+  .container .lead {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px; }
+
+  .welcome {
+    margin-top: 0; }
+    .welcome h1 {
+      font-size: 50px; }
+    .welcome p {
+      text-align: center; }
+    .welcome ul li {
+      text-align: center;
+      display: block; }
+      .welcome ul li a {
+        font-size: 20px; }
+
+  .profile {
+    border-radius: 50%;
+    width: 220px; }
+
+  .projects .col {
+    min-width: 70%;
+    height: 290px !important;
+    overflow: hidden; }
+    .projects .col figure {
+      height: 170px !important; }
+
+  .projectdetails h5 {
+    margin-top: 10px; }
+  .projectdetails .header img {
+    display: none; }
+  .projectdetails .languages {
+    margin-bottom: 10px; }
+    .projectdetails .languages h5 {
+      display: none; }
+  .projectdetails .process .col {
+    display: none; }
+  .projectdetails .projectlink {
+    margin-top: 20px; }
+  .projectdetails .galeriebox {
+    width: 90%; }
+  .projectdetails .processmobile ul {
+    padding: 0;
+    margin: 0; }
+  .projectdetails .processmobile li {
+    list-style: none;
+    margin-bottom: 7px; }
+    .projectdetails .processmobile li strong {
+      display: block;
+      font-size: 17px; }
+
+  .contact .box {
+    padding: 35px 40px; }
+  .contact form {
+    width: 100%; }
+  .contact label {
+    display: none; }
+  .contact .container .row {
+    margin-top: 0 !important; }
+  .contact .big {
+    display: none; }
+
+  .contactbox .social {
+    margin-bottom: 5px; }
+  .contactbox .profile {
+    width: 45px; }
+
+  .skills .col {
+    min-width: 120px; }
+
+  .scroll {
+    display: none; } }
+@media (max-width: 800px) and (min-width: 600px) {
+  .projects .col {
+    min-width: 45%;
+    height: 290px !important; } }
 
 /*# sourceMappingURL=style.css.map */

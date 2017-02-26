@@ -53,6 +53,50 @@ section.ds {
 }
 
 // NAVIGATION
+.topnavi {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding-right: 80px;
+  z-index: 98;
+
+  ul {
+    margin: 2px 0 0 0;
+    padding: 0;
+
+
+    li {
+      padding: 0;
+      display: inline;
+      margin: 10px;
+      text-transform: uppercase;
+      font-weight: 300;
+
+
+      a {
+        font-size: 10px;
+        background-color: $background;
+        color: $secondary-color;
+        padding: 5px;
+
+      }
+      a:hover {
+        background-color: $brand-primary;
+        color: $background
+
+      }
+
+      .active {
+        background-color: $brand-primary;
+        color: $background;
+        font-weight: 700;
+      }
+    }
+
+  }
+}
 .navigation {
   position: fixed;
   border-left: 1px solid white;
@@ -669,8 +713,29 @@ section.ds {
 
 // CONTACT
 .contact {
+  ul {
+    padding-left: 0;
+    margin-left: 0;
+
+    li {
+      list-style: none;
+      color: $secondary-color
+    }
+  }
   form {
     width: 80%;
+  }
+  .ng-submitted {
+    display: none;
+  }
+}
+.contactbox {
+  .profile {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+  .social {
+    margin-bottom: 20px;
   }
 }
 
@@ -692,4 +757,182 @@ section.ds {
 
 .fade.ng-hide-add {
   transition: all linear 500ms;
+}
+.mobileonly {
+  display: none;
+}
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+  content: normal; // IE doesn't support `initial`
+}
+@media (max-width: 800px) {
+
+  .mobileonly {
+    display: block;
+  }
+  h1.big {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  .topnavi {
+    display: none;
+  }
+  .ds, .naviContainer  {
+    padding-right: 40px;
+  }
+  .scroll {
+    margin-left: -63px;
+  }
+  .navigation {
+    width:40px;
+  }
+  .navigation i.mobile {
+    display: none;
+  }
+  .container {
+    .row {
+      margin-top: 5px!important;
+    }
+    .lead {
+      font-size: 15px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+  }
+
+  .welcome {
+    margin-top: 0;
+
+    h1 {
+      font-size: 50px;
+    }
+    p {
+      text-align: center;
+    }
+
+    ul {
+
+      li {
+        text-align: center;
+        display: block;
+        a {
+          font-size: 20px;
+        }
+      }
+
+    }
+  }
+
+  .profile {
+    border-radius: 50%;
+    width: 220px;
+  }
+
+
+  .projects {
+
+    .col {
+      min-width: 70%;
+      height: 290px!important;
+      overflow: hidden;
+
+    figure {
+      height:170px!important;
+    }
+    }
+  }
+  .projectdetails {
+    h5 {
+      margin-top: 10px;
+    }
+    .header {
+      img {
+        display: none;
+      }
+    }
+    .languages {
+      margin-bottom: 10px;
+
+      h5 {
+        display: none;
+      }
+    }
+    .process {
+      .col {
+        display: none;
+
+      }
+    }
+    .projectlink {
+      margin-top: 20px;
+    }
+    .galeriebox {
+      width: 90%;
+    }
+    .processmobile {
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        strong {
+          display: block;
+          font-size: 17px;
+        }
+        list-style: none;
+        margin-bottom: 7px;
+      }
+    }
+  }
+
+  .contact {
+    .box {
+      padding: 35px 40px;
+    }
+    form {
+      width: 100%;
+    }
+    label {
+      display: none;
+    }
+    .container .row {
+      margin-top: 0!important;
+    }
+    .big {
+      display: none;
+    }
+  }
+  .contactbox {
+    .social {
+      margin-bottom: 5px;
+    }
+    .profile {
+      width: 45px;
+    }
+  }
+
+  .skills {
+    .col {
+      min-width:120px;
+    }
+  }
+  .scroll {
+    display: none;
+  }
+
+}
+
+@media (max-width: 800px) and (min-width: 600px) {
+  .projects {
+    .col {
+      min-width: 45%;
+      height: 290px!important;
+
+    }
+  }
 }

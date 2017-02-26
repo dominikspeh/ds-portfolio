@@ -5,27 +5,58 @@
         #section0.section
             .container.text-center
                 h1.big Contact
+
                 .row.center(style="margin-top:70px")
-                    .col.box
-                        form
+                    .col.box.contactbox.left
+                        img.profile(src="/img/dominikspeh.jpg")
+                        .social
+                            .row
+                                .col
+                                    a(href="https://www.xing.com/profile/Dominik_Speh" target="blank")
+                                        i.fa.fa.fa-xing
+                                .col
+                                    a.test(href="https://www.facebook.com/dominik.speh" target="blank")
+                                        i.fa.fa.fa-facebook
+
+                                .col
+                                    a.test(href="https://www.linkedin.com/in/dominik-speh-a6a5b6124/" target="blank")
+                                        i.fa.fa-linkedin
+
+                                .col
+                                    a.test(href="https://www.instagram.com/domspeh" target="blank")
+                                        i.fa.fa-instagram
+
+
+                        h3 Dominik Speh
+                        p
+                            | Haundorfer Straße 18
+                            br
+                            | 74594 Kreßberg
+                        a(href="mailto:mail@domi-speh.de") mail@domi-speh.de
+
+                    .col.box.right
+                        .send.fade(ng-show="sended")
+                            h3 Thank you
+                            p Your message has been sent.
+                        form(name="myform", ng-submit="submit()")
                             .form-group.row
-                                label.col-md-2.col-form-label(for='inputName') Name
-                                .col-md-10
-                                    input#inputName.form-control(type='name', placeholder='Your name')
+                                label.col-md-3.col-form-label(for='inputName') Name
+                                .col-md-9
+                                    input#inputName.form-control(ng-model="name", type='name', placeholder='Your name' ,required)
                             .form-group.row
-                                label.col-md-2.col-form-label(for='inputEmail3') Email
-                                .col-md-10
-                                    input#inputEmail3.form-control(type='email', placeholder='Your email address')
+                                label.col-md-3.col-form-label(for='inputEmail3') Email
+                                .col-md-9
+                                    input#inputEmail3.form-control(ng-model="mail", type='email', placeholder='Your email address', required)
 
                             .form-group.row
-                                label.col-md-2.col-form-label(for='exampleTextarea') Message
-                                .col-md-10
-                                    textarea#exampleTextarea.form-control(rows='3') Your message
+                                label.col-md-3.col-form-label(for='exampleTextarea') Message
+                                .col-md-9
+                                    textarea#exampleTextarea.form-control(ng-model="message", rows='3', required, placeholder="Your message")
 
 
                             .form-group.pull-right
 
-                                button.btn.btn-primary(type='submit') Send
+                                button.btn.btn-primary(ng-disabled="myform.$invalid") Send
 
 
 
@@ -33,3 +64,9 @@
 include layout/navigation
 
 script.
+    $(".social").css("opacity", "0");
+
+    setTimeout(function () {
+        $(".social").css("opacity", "1");
+        $('.social').animateCss('fadeInUp');
+    }, 1000)

@@ -82,8 +82,6 @@ controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window)
                     $('.skills').show().animateCss('fadeInUp');
                     drawAll();
                     $(".overlay").hide();
-
-
                 }
 
 
@@ -94,6 +92,8 @@ controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window)
                     $(".scroll").show().animateCss('fadeInUp');
                 }
                 if (index == 4) {
+                    $(".overlay").hide();
+
                     $(".scroll").hide();
 
                 }
@@ -171,7 +171,7 @@ controller('PcProjectDetailsCtrl', function ($scope, $route, $http) {
     $scope.project = "";
 
     $http.get('/api//json/get/project/detail',config).then(function (res) {
-        $scope.project = res.data
+        $scope.project = res.data;
 
     });
 
@@ -179,28 +179,48 @@ controller('PcProjectDetailsCtrl', function ($scope, $route, $http) {
 }).
 controller('PcContactCtrl', function ($timeout, $scope, $route, $http) {
 
-$timeout(function () {
-    if ($('html').hasClass('fp-enabled')) {
-        $.fn.fullpage.destroy('all');
-    }
-    $("#fullpage").css("opacity", "1");
+    $scope.sended = false;
 
-    $('#fullpage').fullpage({
-        sectionsColor: ['#e8e8e8', '#34495e', '#ffffff', '#e8e8e8'],
-
-        afterLoad: function (anchorLink, index) {
-
-
-        },
-        onLeave: function (index, nextIndex, direction) {
-
-
+    $timeout(function () {
+        if ($('html').hasClass('fp-enabled')) {
+            $.fn.fullpage.destroy('all');
         }
+        $("#fullpage").css("opacity", "1");
+        $('.box').animateCss('fadeIn');
 
 
-    });
-},0)
+        $('#fullpage').fullpage({
+            sectionsColor: ['#e8e8e8', '#34495e', '#ffffff', '#e8e8e8'],
+    
+            afterLoad: function (anchorLink, index) {
+    
+    
+            },
+            onLeave: function (index, nextIndex, direction) {
+            }
+        });
+    },0)
+    
+    $scope.submit = function () {
 
+
+        $http.post('/api/post/contact', {
+            from: $scope.name,
+            mail: $scope.mail,
+            message: $scope.message
+        })
+            .then(
+                function(response){
+                    $scope.sended = true;
+
+                },
+                function(response){
+                    // failure callback
+                }
+            );
+    }
+
+    
 
 });
 

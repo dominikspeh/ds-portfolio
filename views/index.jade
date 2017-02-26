@@ -4,9 +4,11 @@ html(ng-app='ds')
               meta(charset='utf-8')
               title Dominik Speh Portfolio
               meta(name='viewport', content='width=device-width, initial-scale=1.0')
-              meta(name='apple-mobile-web-app-capable', content='yes')
+              meta(name='viewport', content='width=device-width,initial-scale=1.0')
               link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
               link(href='https://fonts.googleapis.com/css?family=Lora:700', rel='stylesheet')
+              link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900', rel='stylesheet')
+
               link(rel='stylesheet', type='text/css', href='/scss/libs/jquery.fullpage.min.css')
               link(rel='stylesheet', type='text/css', href='/scss/libs/jquery.circliful.css')
               link(rel='stylesheet', type='text/css', href='/scss/libs/loading-bar.min.css')
@@ -14,7 +16,8 @@ html(ng-app='ds')
               link(href='/scss/font-awesome.min.css', rel='stylesheet')
               link(href='/scss/ionicons.min.css', rel='stylesheet')
 
-              link(ng-href='/scss/{{deviceType}}/style.css', rel='stylesheet')
+              //link(ng-href='/scss/{{deviceType}}/style.css', rel='stylesheet')
+              link(ng-href='/scss/desktop/style.css', rel='stylesheet')
 
 
        body(ng-controller="GlobalCtrl")

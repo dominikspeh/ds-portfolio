@@ -33,13 +33,6 @@
                                         a.test(href="https://www.instagram.com/domspeh" target="blank")
                                             i.fa.fa-instagram
 
-
-
-
-
-
-
-
                             hr.social
 
                             .social
@@ -78,7 +71,7 @@
                         span.btn.btn-primary.btn-sm(ng-click="showSkill(1)",ng-class="{'active':activeSkill==1}") Frameworks
                         span.btn.btn-primary.btn-sm(ng-click="showSkill(2)",ng-class="{'active':activeSkill==2}") Others
 
-                    .row.languages(ng-show="activeSkill == 0")
+                    .row.languages.flex-wrap(ng-show="activeSkill == 0")
                         .col.text-center
                             #skill-js.circle()
                             h5 Javascript

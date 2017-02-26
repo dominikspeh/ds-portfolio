@@ -13,6 +13,8 @@ var io = require('socket.io').listen(server);
 dotenv.load({ path: '.env' });
 
 // CONFIG
+mongoose.Promise = global.Promise;
+
 mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI);
 mongoose.connection.on('error', () => {
     process.exit();

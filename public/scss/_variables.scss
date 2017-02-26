@@ -18,3 +18,8 @@ $random: random(3);
   color: $background;
   border-color: $secondary-color;
 }
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: $background;
+  color: $secondary-color
+}
