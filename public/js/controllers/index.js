@@ -58,6 +58,19 @@ controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $locatio
     };
 
 
+    $scope.$on('$routeChangeStart', function() {
+
+        if ($('html').hasClass('fp-enabled')) {
+            $.fn.fullpage.destroy('all');
+            $("#fullpage").css('opacity','1')
+        }
+
+    });
+
+    $scope.$on('$routeChangeSuccess', function() {
+    });
+
+
 
 });
 
