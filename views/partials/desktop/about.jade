@@ -6,11 +6,11 @@
                 .container.text-center
 
                     .row
-                        .col.text-center.box.left
+                        .col-md-6.text-center.box.left
 
                             img.profile(src="/img/dominikspeh.jpg")
 
-                        .col.box.right.text-center
+                        .col-md-6.box.right.text-center
 
                             h1
                                 | Dominik Speh
@@ -72,7 +72,8 @@
                         span.btn.btn-primary.btn-sm(ng-click="showSkill(2)",ng-class="{'active':activeSkill==2}") Others
 
                     .row.languages.flex-wrap(ng-show="activeSkill == 0")
-                        .col.text-center
+
+                        .col.text-cente
                             #skill-js.circle()
                             h5 Javascript
                             p 9 / 10

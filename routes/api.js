@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
-
-const Projects = require('../models/projects');
+const Projects = require('../models/Projects');
 
 
 
