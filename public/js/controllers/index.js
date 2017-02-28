@@ -58,5 +58,6 @@ controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $locatio
     };
 
 
+
 });
 

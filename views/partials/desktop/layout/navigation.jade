@@ -59,7 +59,7 @@ aside.navigation
     i.fa.mobile.fa-mobile-phone(ng-click="showMobileNav = !showMobileNav ; showNavigation = false", ng-class="{'active':showMobileNav}")
 
 .naviContainer.fade(ng-show="showNavigation")
-    .row.justify-content-center.align-items-center.align-content-center
+    .row
         ul
             li
                 a(href="#", ng-class="{ active: isActive('/')}", ng-click="goToHome()") Home
