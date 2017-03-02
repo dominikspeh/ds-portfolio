@@ -1,17 +1,35 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const ig = require('instagram-node').instagram();
+
 const Projects = require('../models/Projects');
 
+router.get('/json/instagram', function(req, res) {
 
+    ig.use({ access_token: process.env.instagramSecret });
+
+    ig.user_media_recent(process.env.instagramUserId, {count: 6}, function(err, medias) {
+        if(!err) {
+            res.json(medias)
+        }
+        else {
+            res.json('')
+        }
+
+    })
+
+
+
+
+});
 
 router.get('/json/get/projects', function(req, res) {
 
-        Projects.find().sort().exec().then(function (results, err) {
+        Projects.find().sort({number : -1}).exec().then(function (results, err) {
 
             if(!err){}
                 res.send(results)
-
 
         });
 

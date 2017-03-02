@@ -2,6 +2,10 @@
 
 body {
   background-color: $background;
+
+}
+.bgImage {
+  width: 100%;
 }
 .ds {
   padding-right: 80px;
@@ -34,6 +38,25 @@ h1,h2,h3,h4,h5,i,p {
   }
 }
 
+h4 {
+  i {
+    margin-right: 10px;
+  }
+}
+.infoboxes {
+  opacity: 0;
+}
+.instagram {
+
+  opacity: 1;
+
+  img {
+    margin: 10px 0;
+    border-radius: 50%;
+    width: 100%;
+    height:auto;
+  }
+}
 p,strong,span {
   font-family: "Lato";
 }
@@ -278,6 +301,7 @@ section.ds {
       }
     }
   }
+
 }
 
 // ABOUT
@@ -577,6 +601,14 @@ section.ds {
 
   h5 {
     margin:30px 0 20px 0;
+  }
+  .github {
+    margin-top: 40px;
+    padding: 5px!important;
+    i {
+      color: $background;
+      margin-right: 10px;
+    }
   }
   .languages, .frameworks {
     li {

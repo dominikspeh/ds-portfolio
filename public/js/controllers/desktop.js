@@ -22,7 +22,24 @@ controller('PcCodeCtrl', function ($scope, $rootScope, $location, socket) {
 
 
 }).
-controller('PcMainCtrl', function ($scope, $location, socket, $window) {
+controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $timeout) {
+
+    $(".welcome").animateCss('fadeInDown');
+    $scope.instagram = '' ;
+
+    $http.get('/api//json/instagram').then(function (res) {
+        $scope.instagram = res.data;
+        $timeout(function () {
+            $(".infoboxes").animateCss('flipInX');
+            $(".infoboxes").css('opacity','1')
+        },1500)
+
+
+
+
+
+
+    });
 
 
     // Disconncted
@@ -38,6 +55,7 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window) {
 
 
 }).
+
 controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window) {
     $scope.activeSkill = 0;
     $scope.activeVita = 0;
@@ -162,30 +180,32 @@ controller('PcProjectsCtrl', function ($scope, $http) {
 }).
 controller('PcProjectDetailsCtrl', function ($scope, $rootScope, $route, $http, $timeout) {
 
-    var config = {
-        data:  $route.current.params.alias,
-        params: {alias: $route.current.params.alias}
-    }
 
 
-    $rootScope.project = "";
+    $timeout(function () {
+        var config = {
+            data:  $route.current.params.alias,
+            params: {alias: $route.current.params.alias}
+        }
 
-    $http.get('/api//json/get/project/detail',config).then(function (res) {
-        $rootScope.project = res.data;
 
-    });
+        $scope.project = "";
+
+        $http.get('/api//json/get/project/detail',config).then(function (res) {
+            $scope.project = res.data;
+
+        });
+
+
+    },0)
+
 
 
 
 
 
 }).
-controller('PcProjectDetailsFullpageCtrl', function ($scope, $rootScope, $route, $http, $timeout) {
 
-
-
-
-}).
 controller('PcContactCtrl', function ($timeout, $scope, $route, $http) {
 
     $scope.sended = false;
@@ -200,7 +220,7 @@ controller('PcContactCtrl', function ($timeout, $scope, $route, $http) {
 
         });
     },0)
-    
+
     $scope.submit = function () {
 
 

@@ -1,11 +1,12 @@
 .projectdetails(ng-controller="PcProjectDetailsCtrl")
-    #fullpage(ng-controller="PcProjectDetailsFullpageCtrl")
+    #fullpage
         #section0.section
 
             .container
                 h1.big.text-center {{project.name}}
 
-                .row(style="margin-top:70px")
+
+                .row(style="margin-top:30px")
                     .col-md-8.header
                         img(ng-src="{{project.image}}")
                     .col-md-4.text-center
@@ -25,6 +26,10 @@
                             ul.languages(ng-if="project.frameworks.length > 0")
                                 h5 Frameworks & Tools
                                 li.frameworks(ng-repeat="framework in project.frameworks") {{framework}}
+                        a.languages.text-center.btn-sm.btn.btn-primary.github(ng-href="{{project.github}}" target="blank",ng-if="project.github")
+                            i.fa.fa-github
+                            | Show on github
+
 
 
 
@@ -78,9 +83,12 @@ include layout/navigation
 
 script.
 
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }
+
     $(".galeriebox,.projectlink").hide();
     $(".languages").css("opacity", "0");
-
 
     $('#fullpage').fullpage({
         sectionsColor: ['#e8e8e8', '#34495e', '#ffffff', '#e8e8e8'],
@@ -142,3 +150,4 @@ script.
 
 
     });
+

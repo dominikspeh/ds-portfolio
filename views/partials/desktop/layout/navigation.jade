@@ -18,8 +18,7 @@ header.topnavi.container.text-center(ng-show="!showNavigation")
 aside.navigation
 
     i.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}")
-    i.fa.fa-angle-left.back(ng-if="!isActive('/')", ng-click="historyBack()")
-
+    i.fa.fa-angle-left.back(ng-if="$route.current.$$route.templateUrl == '/partials/desktop/projectdetails'", ng-click="goToProjects()")
 
     .current(ng-controller="PcProjectDetailsCtrl")
         p.currentPage {{$route.current.title || project.name}}
@@ -76,9 +75,9 @@ aside.navigation
     .imprint
         ul
             li
-                a(href="/ds/imprint") Imprint
+                a(href="/ds/imprint") Impressum
             li
-                a(href="/ds/privacy") Privacy
+                a(href="/ds/privacy") Datenschutz
 
 
 

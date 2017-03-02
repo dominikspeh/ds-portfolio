@@ -2,20 +2,9 @@
 
     .container(style="width:100%")
         .row
-            .col.pinned(ng-repeat="project in allProjects" ng-if="project.pinned == true")
-                figure
-                    .edit
-                        a.btn.btn-primary(ng-href="projects/{{project.alias}}") Show
-                    img(ng-src="{{project.thumbpath}}")
-                h5 {{project.name}}
-                span {{project.type}}
-
-                ul.languages
-                    li(ng-repeat="language in project.languages") {{language}}
-                    li.frameworks(ng-repeat="framework in project.frameworks") {{framework}}
 
         .row
-            .col(ng-repeat="project in allProjects", ng-if="project.pinned != true")
+            .col(ng-repeat="project in allProjects")
                 figure
                     .edit
                         a.btn.btn-primary(ng-href="projects/{{project.alias}}") Show
@@ -29,12 +18,11 @@
 
 
 
-
-
-include layout/navigation
-
 script.
-
     if ($('html').hasClass('fp-enabled')) {
         $.fn.fullpage.destroy('all');
     }
+
+include layout/navigation
+
+

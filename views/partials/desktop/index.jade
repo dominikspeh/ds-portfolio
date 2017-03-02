@@ -3,19 +3,38 @@ div(ng-controller='PcCodeCtrl')
 
 
         include layout/navigation
+        .row.height100vh.startbox
+            .col-md-1
+            .col-md-10
+                .welcome
+                    .row.text-center
+                        .col-md-12
+                            h1 Welcome.
+                            p Here you can find out all about me, my skills and my projects.
 
-        .welcome
-            h1 Welcome.
-            p Here you can find out all about me, my skills and my projects.
+                    .row.infoboxes.text-center(style="margin-top:70px")
+                        .col-md-4.box
+                            h4
+                                i.fa.fa-instagram
+                                | Instagram
+
+                            .row.instagram
+
+                                .col-sm-4.image(ng-repeat="image in instagram")
+                                    img(ng-src="{{image.images.low_resolution.url}}")
+                        .col-md-4.box
+                            h4
+                                i.fa.fa-github
+                                | GitHub
+                        .col-md-4.box
+                            h4
+                                i.fa.fa-code
+                                | In process
+
+            .col-md-1
 
 
 
-            ul
-                li
-                    a(href="#", ng-class="{ active: isActive('/ds/about')}", ng-click="goToAbout()") About me
 
-                li
-                    a(href="#",ng-click="goToProjects()") Project
-                li
-                    a(href="#",ng-click="goToContact()") Contact
+
 

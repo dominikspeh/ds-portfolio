@@ -64,9 +64,17 @@
 include layout/navigation
 
 script.
+    if ($('html').hasClass('fp-enabled')) {
+        $.fn.fullpage.destroy('all');
+    }
+
     $(".social").css("opacity", "0");
 
     setTimeout(function () {
         $(".social").css("opacity", "1");
         $('.social').animateCss('fadeInUp');
     }, 1000)
+
+    $("#fullpage").css("opacity", "1");
+    $('.box').animateCss('fadeIn');
+

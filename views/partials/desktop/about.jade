@@ -250,6 +250,10 @@ include layout/navigation
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         });
+        if ($('html').hasClass('fp-enabled')) {
+            $.fn.fullpage.destroy('all');
+        }
+
 
 
         function draw(idwhere, idwhat, options) {
