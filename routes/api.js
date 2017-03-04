@@ -2,8 +2,17 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const ig = require('instagram-node').instagram();
+const GitHubApi = require("github");
+var github = new GitHubApi();
+
+github.authenticate({
+    type: "oauth",
+    key: process.env.gitHubKey,
+    secret: process.env.gitHubSecret,
+})
 
 const Projects = require('../models/Projects');
+
 
 router.get('/json/instagram', function(req, res) {
 
@@ -18,12 +27,19 @@ router.get('/json/instagram', function(req, res) {
         }
 
     })
+});
 
+router.get('/json/github', function(req, res) {
 
+    github.activity.getEventsForUser({
+        username: "dominikspeh",
+        per_page: 2,
+    }, function (err, result) {
+        res.json(result.data)
+    });
 
 
 });
-
 router.get('/json/get/projects', function(req, res) {
 
         Projects.find().sort({number : -1}).exec().then(function (results, err) {

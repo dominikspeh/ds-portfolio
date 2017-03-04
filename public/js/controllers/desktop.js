@@ -1,7 +1,15 @@
 'use strict';
 
 angular.module('ds.controllers.desktop', [
-]).
+]).directive('myRepeatDirective', function() {
+    return function(scope, element, attrs) {
+
+        if (scope.$last){
+            console.log($(".instagram .image img").width())
+       console.log(element.context.clientWidth)
+        }
+    };
+}).
 controller('PcCodeCtrl', function ($scope, $rootScope, $location, socket) {
     socket.on('pair:sendCode', function(data) {
 
@@ -24,20 +32,25 @@ controller('PcCodeCtrl', function ($scope, $rootScope, $location, socket) {
 }).
 controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $timeout) {
 
-    $(".welcome").animateCss('fadeInDown');
+    $timeout(function () {
+        $(".welcome").animateCss('fadeInDown');
+        $(".welcome").css('opacity','1')
+    },1500);
+
+    $scope.instagram = '' ;
     $scope.instagram = '' ;
 
     $http.get('/api//json/instagram').then(function (res) {
-        $scope.instagram = res.data;
+
         $timeout(function () {
-            $(".infoboxes").animateCss('flipInX');
+            $scope.instagram = res.data;
+            $(".infoboxes").animateCss('fadeInUp');
             $(".infoboxes").css('opacity','1')
-        },1500)
+        },3000)
+    });
 
-
-
-
-
+    $http.get('/api//json/github').then(function (res) {
+        $scope.github = res.data;
 
     });
 
@@ -53,7 +66,36 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $t
         $location.path(data.link);
     });
 
+    // SMARTPHONE
+    if($("body").width() < 900){
+        $(".instabox h4").click(function () {
+            $(".instabox .image").fadeToggle();
+        });
 
+        $(".gitbox h4").click(function () {
+            $(".gitbox .github").fadeToggle();
+        });
+
+        $(".processbox h4").click(function () {
+            $(".processbox .process").fadeToggle();
+        });
+    }
+
+
+
+
+    $timeout(function () {
+        if($("body").width() > 900) {
+            var divWidth = $('.instagram img').width();
+            $('.instagram img').height(divWidth);
+        }
+    },4000)
+
+
+    $(window).resize(function(){
+        var divWidth = $('.instagram img').width();
+        $('.instagram img').height(divWidth);
+    });
 }).
 
 controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window) {

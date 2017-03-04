@@ -43,16 +43,21 @@ h1, h2, h3, h4, h5, i, p {
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark p, .dark span, .dark i {
   color: #e8e8e8; }
 
-h4 i {
-  margin-right: 10px; }
+h4 {
+  width: 100%;
+  padding: 10px; }
+  h4 i {
+    color: #e8e8e8;
+    margin-right: 10px; }
 
 .infoboxes {
   opacity: 0; }
 
 .instagram {
+  margin-top: 10px;
   opacity: 1; }
   .instagram img {
-    margin: 10px 0;
+    margin: 17px 0;
     border-radius: 50%;
     width: 100%;
     height: auto; }
@@ -202,18 +207,24 @@ section.ds {
   z-index: 3; }
 
 .welcome {
+  opacity: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   align-content: center;
   width: 100%;
-  height: 100vh;
-  margin-top: -69px; }
+  height: 100vh; }
   .welcome h1 {
     font-size: 150px;
     font-family: 'Lora', serif;
     color: #49afa4; }
+  .welcome h4 {
+    background-color: #49afa4;
+    color: #e8e8e8;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 15px; }
   .welcome p {
     font-size: 18px;
     color: #49afa4; }
@@ -230,6 +241,28 @@ section.ds {
       .welcome ul li a:hover {
         text-decoration: none;
         color: #49afa4; }
+  .welcome section {
+    padding: 10px 0; }
+    .welcome section article {
+      min-height: 110px; }
+      .welcome section article .time {
+        font-size: 9px; }
+      .welcome section article h5 {
+        font-size: 14px;
+        margin: 0;
+        text-transform: uppercase; }
+      .welcome section article p {
+        padding: 0;
+        margin: 5px 0 0 0;
+        font-size: 13px;
+        color: #34495e; }
+        .welcome section article p strong {
+          margin: 0;
+          font-size: 10px;
+          color: #34495e;
+          margin-right: 3px; }
+      .welcome section article a.btn {
+        margin: 10px 0; }
 
 .about {
   height: 100%; }
@@ -570,7 +603,7 @@ section.ds {
 .row:after {
   content: normal; }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .mobileonly {
     display: block; }
 
@@ -603,7 +636,13 @@ section.ds {
     margin-bottom: 5px; }
 
   .welcome {
-    margin-top: 0; }
+    padding: 15px;
+    height: inherit; }
+    .welcome .container {
+      padding: 0; }
+      .welcome .container h4 {
+        font-size: 14px;
+        margin-bottom: 0; }
     .welcome h1 {
       font-size: 50px; }
     .welcome p {
@@ -613,6 +652,19 @@ section.ds {
       display: block; }
       .welcome ul li a {
         font-size: 20px; }
+    .welcome .instabox {
+      margin-top: 20px !important; }
+    .welcome .instagram .image {
+      display: none; }
+    .welcome .instagram .image:nth-child(n+4) {
+      display: none !important; }
+    .welcome .github {
+      display: none; }
+    .welcome .process {
+      display: none; }
+
+  .height100vh {
+    height: inherit; }
 
   .profile {
     border-radius: 50%;
@@ -732,7 +784,12 @@ section.ds {
 
   .naviContainer .imprint {
     bottom: 70px; } }
-@media (max-width: 800px) and (min-width: 600px) {
+@media (max-width: 1000px) and (min-width: 600px) {
+  .welcome {
+    height: 100vh; }
+    .welcome .instabox {
+      margin-top: 0px !important; }
+
   .projects .col.pinned {
     max-width: 100%;
     height: 360px !important; }

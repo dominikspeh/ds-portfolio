@@ -12,27 +12,59 @@ div(ng-controller='PcCodeCtrl')
                             h1 Welcome.
                             p Here you can find out all about me, my skills and my projects.
 
-                    .row.infoboxes.text-center(style="margin-top:70px")
-                        .col-md-4.box
-                            h4
-                                i.fa.fa-instagram
-                                | Instagram
+                    .container
+                        .row.infoboxes.text-center(style="margin-top:70px")
+                            .col-md-4.box.justify-content-start.instabox
+                                h4
+                                    i.fa.fa-instagram
+                                    | Instagram
 
-                            .row.instagram
+                                .row.instagram
 
-                                .col-sm-4.image(ng-repeat="image in instagram")
-                                    img(ng-src="{{image.images.low_resolution.url}}")
-                        .col-md-4.box
-                            h4
-                                i.fa.fa-github
-                                | GitHub
-                        .col-md-4.box
-                            h4
-                                i.fa.fa-code
-                                | In process
+                                    .col-lg-4.image(ng-repeat="image in instagram", my-repeat-directive)
+                                        img(ng-src="{{image.images.low_resolution.url}}")
+                            .col-md-4.box.justify-content-start.gitbox
+                                h4
+                                    i.fa.fa-github
+                                    | GitHub
+                                .github
+                                    section(ng-repeat="event in github")
+                                        article(ng-if='event.type == "PushEvent"')
+                                            span.time {{event.created_at | date:"MM.dd.yyyy 'at' HH:mm"}} Uhr
+                                            h5
+                                                a(ng-href="http://www.github.com/{{event.repo.name}}", target="blank") {{event.repo.name}}
+                                            p {{event.payload.commits[0].message}}
+                                            p
+                                                strong [commit]
+
+
+
+                                        article(ng-if='event.type == "WatchEvent"')
+                                            span.time {{event.created_at | date:"MM.dd.yyyy 'at' HH:mm"}} Uhr
+                                            h5
+                                                a(ng-href="http://www.github.com/{{event.repo.name}}", target="blank") {{event.repo.name}}
+                                            p
+                                                strong [starred]
+                            .col-md-4.box.justify-content-start.processbox
+                                h4
+                                    i.fa.fa-code
+                                    | In process
+                                .process
+                                    section
+                                        article
+                                            span.time 04.03.2017 at 16:45 Uhr
+                                            h5
+                                                a(href="ds/projects") Magic Mirror
+                                            p At the moment I'm coding an application for my magic mirror based on node.js and vue.js
+                                    section
+                                        article
+                                            span.time 03.03.2017 at 21:10 Uhr
+                                            h5
+                                                a(href="ds/projects") Step by step
+                                            p The portfolio grows... Day by day I try to implement more projects.
+
 
             .col-md-1
-
 
 
 

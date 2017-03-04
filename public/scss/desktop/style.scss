@@ -39,7 +39,13 @@ h1,h2,h3,h4,h5,i,p {
 }
 
 h4 {
+
+
+  width: 100%;
+  padding: 10px;
+
   i {
+    color: $background;
     margin-right: 10px;
   }
 }
@@ -48,15 +54,18 @@ h4 {
 }
 .instagram {
 
+  margin-top: 10px;
   opacity: 1;
 
   img {
-    margin: 10px 0;
+    margin: 17px 0;
     border-radius: 50%;
     width: 100%;
     height:auto;
+
   }
 }
+
 p,strong,span {
   font-family: "Lato";
 }
@@ -262,6 +271,7 @@ section.ds {
 
 // WELCOME
 .welcome {
+  opacity: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -269,7 +279,6 @@ section.ds {
   align-content: center;
   width: 100%;
   height: 100vh;
-  margin-top: -69px;
 
   h1 {
     font-size: 150px;
@@ -277,6 +286,13 @@ section.ds {
     color: $brand-primary;
   }
 
+  h4 {
+    background-color: $brand-primary;
+    color: $background;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
   p {
     font-size: 18px;
     color: $brand-primary;
@@ -301,6 +317,46 @@ section.ds {
       }
     }
   }
+
+
+
+
+    section {
+
+      padding:10px 0;
+
+      article {
+        min-height: 110px;
+        .time {
+          font-size: 9px;
+        }
+        h5 {
+          font-size: 14px;
+          margin: 0;
+          text-transform: uppercase;
+        }
+        p {
+          padding:0;
+          margin: 5px 0 0 0;
+          font-size: 13px;
+          color: $secondary-color;
+
+          strong {
+            margin: 0;
+            font-size:10px;
+            color: $secondary-color;
+            margin-right: 3px;
+          }
+
+        }
+
+        a.btn {
+          margin:10px 0;
+        }
+
+      }
+    }
+
 
 }
 
@@ -803,7 +859,7 @@ section.ds {
 .row:after {
   content: normal; // IE doesn't support `initial`
 }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
   .mobileonly {
     display: block;
@@ -843,7 +899,18 @@ section.ds {
   }
 
   .welcome {
-    margin-top: 0;
+    padding: 15px;
+    height: inherit;
+
+    .container {
+      padding: 0;
+
+      h4 {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+    }
+
 
     h1 {
       font-size: 50px;
@@ -863,8 +930,34 @@ section.ds {
       }
 
     }
+
+
+    .instabox {
+      margin-top: 20px!important;
+    }
+    .instagram {
+
+      .image {
+        display: none;
+      }
+      .image:nth-child(n+4) {
+        display: none!important;
+      }
+    }
+
+    .github {
+      display: none;
+    }
+
+    .process {
+      display: none;
+    }
+
   }
 
+  .height100vh {
+    height: inherit;
+  }
   .profile {
     border-radius: 50%;
     width: 160px;
@@ -1067,9 +1160,16 @@ section.ds {
 
 
 
+
 }
 
-@media (max-width: 800px) and (min-width: 600px) {
+@media (max-width: 1000px) and (min-width: 600px) {
+  .welcome {
+    height: 100vh;
+    .instabox {
+      margin-top: 0px !important;
+    }
+  }
   .projects {
     .col.pinned {
       max-width: 100%;

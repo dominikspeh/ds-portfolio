@@ -49,4 +49,5 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
 
 
 }).
+
 run(function(Analytics) {});
