@@ -213,8 +213,10 @@ controller('PcProjectsCtrl', function ($scope, $http) {
 
     $scope.allProjects = "";
 
-    $http.get('/api//json/get/projects').then(function (res) {
+    $http.get('/api/json/get/projects').then(function (res) {
         $scope.allProjects = res.data
+        $(".projects").animateCss('zoomIn');
+        $(".projects").css("opacity","1")
 
     });
 
@@ -231,10 +233,18 @@ controller('PcProjectDetailsCtrl', function ($scope, $rootScope, $route, $http, 
         }
 
 
+
         $scope.project = "";
 
         $http.get('/api//json/get/project/detail',config).then(function (res) {
             $scope.project = res.data;
+            $(".projectdetails").animateCss('fadeIn');
+            $(".projectdetails").css("opacity","1")
+
+            $('.slider').carousel({
+                interval: 5000,
+                pause: false
+            })
 
         });
 

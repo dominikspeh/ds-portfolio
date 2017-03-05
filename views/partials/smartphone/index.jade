@@ -1,19 +1,19 @@
 .mobile(ng-controller='MobileCodeCtrl')
-    .content
-        form.formbody(style="padding-bottom:70px")
-            .form-group
-                input.form-control.code(type='hidden', value="#{code}", ng-model='code')
+
+    .row.text-center
+        .col-md-12(style="margin-top:70px")
+            h1 Welcome.
+            p How would you like to continue? You can watch the mobile website of my portfolio or you can control your desktop browser over your mobile device.
 
 
-            .form-group.codeArea
-                input.codeInput(type='number',pattern='[0-9]*')
-                input.codeInput(type='number',pattern='[0-9]*')
-                input.codeInput(type='number',pattern='[0-9]*')
-                input.codeInput(type='number',pattern='[0-9]*')
+    .row.text-center(style="margin-top:50px")
+        .col-md-12
+            a.box(href="/ds/mobile") Show website
+
+        .col-md-12
+            a.box(href="/ds/remote") Control your desktop browser
 
 
-        div.alert.alert-danger.alert-code(ng-show='isCodeInvalid')
-            p Error
 
 
 

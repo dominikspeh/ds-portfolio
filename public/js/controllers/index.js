@@ -10,6 +10,8 @@ controller('HeadCtrl', function ($scope, socket, $location) {
    // $location.path('/hbc/remote');
     //
 
+
+
     socket.on('pair:init', function() {
         socket.emit('pair:deviceType', { deviceType: device });
     });

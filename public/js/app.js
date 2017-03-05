@@ -5,14 +5,20 @@ factory('socket', function(socketFactory) {
     return socketFactory();
 }).
 config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
-    AnalyticsProvider.setAccount('UA-XXX-XXX-XX');
+    AnalyticsProvider.setAccount('UA-52323715-7');
 
     $routeProvider.
     when('/', {
-        templateUrl: '/partials/desktop/index'
+        templateUrl: '/partials/' + window.deviceType + '/index'
     }).
     when('/:code', {
         templateUrl: '/partials/desktop/index'
+    }).
+    when('/ds/mobile', {
+        templateUrl: '/partials/desktop/index'
+    }).
+    when('/ds/remote', {
+        templateUrl: '/partials/smartphone/code'
     }).
     when('/ds/success', {
         templateUrl: '/partials/desktop/success'

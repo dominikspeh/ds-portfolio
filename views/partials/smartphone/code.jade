@@ -1,0 +1,27 @@
+.mobile(ng-controller='MobileCodeCtrl')
+    .content
+
+        form.formbody(style="padding-bottom:70px; margin-top: 70px")
+            .container.text-center
+                h1 Hello.
+                p Visit http://domispeh.me with your desktop browser and click on the mobile icon in the lower right area.
+                br
+            .form-group
+                input.form-control.code(type='hidden', value="#{code}", ng-model='code')
+
+
+            .form-group.codeArea
+                input.codeInput(type='number',pattern='[0-9]*')
+                input.codeInput(type='number',pattern='[0-9]*')
+                input.codeInput(type='number',pattern='[0-9]*')
+                input.codeInput(type='number',pattern='[0-9]*')
+
+
+        div.alert.alert-danger.alert-code(ng-show='isCodeInvalid')
+            p Error
+        .container(style="margin-top:0px")
+            p
+                | You won't use the remote function? Go
+                a(href="/ds/mobile")  here
+                |  to the repsonsive website
+

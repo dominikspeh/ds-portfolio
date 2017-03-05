@@ -6,6 +6,7 @@ angular.module('ds.controllers.smartphone', [
 // Code Controller
 controller('MobileCodeCtrl', function($scope,$rootScope, $routeParams, $timeout, $location, $window, socket) {
 
+    $(".ds").css("padding-right","0")
     if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
 
         $(document)

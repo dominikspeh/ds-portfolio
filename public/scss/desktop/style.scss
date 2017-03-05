@@ -37,7 +37,9 @@ h1,h2,h3,h4,h5,i,p {
     color: $background
   }
 }
-
+.lead {
+  font-size: 15px;
+}
 h4 {
 
 
@@ -68,7 +70,12 @@ h4 {
 
 p,strong,span {
   font-family: "Lato";
+  font-size: 14px;
 }
+li,a {
+  font-family: "Lato";
+  font-weight: 300;
+ }
 
 h1.big {
   font-family: 'Lora', serif;
@@ -322,7 +329,6 @@ section.ds {
 
 
     section {
-
       padding:10px 0;
 
       article {
@@ -379,6 +385,7 @@ section.ds {
 }
 
 .section {
+  overflow: hidden;
  // padding-bottom: 65px;
 }
 .scroll {
@@ -543,6 +550,7 @@ section.ds {
 }
 
 .projects {
+  opacity: 0;
   margin-top: 70px;
 
   .pinned.col {
@@ -655,8 +663,10 @@ section.ds {
 
 .projectdetails {
 
+  opacity: 0;
   h5 {
     margin:30px 0 20px 0;
+    font-size: 15px;
   }
   .github {
     margin-top: 40px;
@@ -668,7 +678,7 @@ section.ds {
   }
   .languages, .frameworks {
     li {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
   .header {
@@ -801,6 +811,12 @@ section.ds {
     }
 
   }
+
+  .boringRow {
+    img {
+      width: 100%;
+    }
+  }
 }
 
 // CONTACT
@@ -859,6 +875,62 @@ section.ds {
 .row:after {
   content: normal; // IE doesn't support `initial`
 }
+
+.mobile {
+  .ds {
+    padding: 0;
+    margin: 0;
+  }
+
+  a.box {
+    display: block;
+  }
+
+  .alert p {
+    color: white;
+    text-align: center;
+  }
+  /*FORM*/
+  .formbody {
+    padding-top: 20px;
+  }
+
+  .codeArea {
+    padding:30px 0 30px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: $brand-primary;
+
+  }
+  textarea:focus, input:focus{
+    outline: none;
+  }
+  .codeInput{
+    margin-right:10px;
+    border:none;
+    border-radius: 10px;
+    width:60px;
+    padding: 10px 10px 10px 23px;
+    font-size: 25px;
+    box-shadow: none;
+  }
+  .alert-code {
+    position: fixed;
+    bottom: 54px;
+    left: 0px;
+  }
+  .fixfixed .header,
+  .fixfixed .footer {
+    position: absolute;
+  }
+
+
+
+}
+// Responsive
 @media (max-width: 1000px) {
 
   .mobileonly {
@@ -1156,6 +1228,12 @@ section.ds {
   }
   .naviContainer .imprint {
     bottom: 70px;
+  }
+
+  .boringRow {
+    .col-md-6:nth-child(n+2) {
+      display: none!important;
+    }
   }
 
 

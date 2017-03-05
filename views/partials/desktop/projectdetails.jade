@@ -54,12 +54,12 @@
 
 
 
-        #section2.section(ng-if="project.galerie.length > 0")
+        #section2.section(ng-if="project.galerie.length > 0 && project.type =='Website'")
             .row.galerie.text-center.align-content-center.align-items-center.justify-content-center
                 .col-md-1
                 .col-md-8.galeriebox.align-content-center.flex-column.align-items-center.justify-content-center
                     img.imac(src="/img/imac.png")
-                    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+                    .slider.carousel.slide
                         .carousel-inner(role='listbox')
                             .carousel-item(ng-repeat="galerie in project.galerie", ng-class="{'active': $index == 0 }")
                                 img(ng-src="{{galerie}}")
@@ -70,6 +70,25 @@
                     p.lead {{project.name}}
                     hr
                     a.btn-primary.btn(ng-href="{{project.url}}", target="blank") Show live
+
+        #section3.section(ng-if="project.galerie.length > 0 && project.type !='Website'")
+            .row.galerie.text-center.align-content-center.align-items-center.justify-content-center
+                .col-md-1
+                .col-md-8.align-content-center.flex-column.align-items-center.justify-content-center
+                    .row.boringRow
+                        .col-md-12(ng-repeat="galerie in project.galerie", ng-if="project.galerie.length == 1")
+                            img(ng-src="{{galerie}}")
+                        .col-md-6(ng-repeat="galerie in project.galerie", ng-if="project.galerie.length > 1")
+                            img(ng-src="{{galerie}}")
+
+
+
+                .col-md-3.projectlink
+                    h4 {{project.type}}
+                    p.lead {{project.name}}
+                    hr
+                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank" ng-if="project.url") Show live
+
 
 
 
@@ -82,7 +101,6 @@
 include layout/navigation
 
 script.
-
     if ($('html').hasClass('fp-enabled')) {
         $.fn.fullpage.destroy('all');
     }
@@ -105,7 +123,7 @@ script.
             if (index == 1) {
 
                 setTimeout(function () {
-                    $(".galeriebox,.projectlink").hide();
+                    $(".galeriebox,.boringRow,.projectlink").hide();
                     $(".languages").css("opacity", "1");
                     $('.languages').animateCss('fadeInUp');
 
@@ -127,8 +145,8 @@ script.
                 });
             }
             if (index == 3 || $(".section").length == 2) {
-                $(".galeriebox,.projectlink").show();
-                $('.galeriebox').animateCss('fadeInLeft');
+                $(".galeriebox,.boringRow,.projectlink").show();
+                $('.galeriebox, .boringRow').animateCss('fadeInLeft');
                 $('.projectlink').animateCss('fadeInUpBig');
             }
 
