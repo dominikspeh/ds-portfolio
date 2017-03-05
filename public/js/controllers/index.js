@@ -2,12 +2,13 @@
 
 angular.module('ds.controllers.index', []).
 
-controller('HeadCtrl', function ($scope, socket, $location) {
+controller('HeadCtrl', function ($scope, socket, $rootScope, $location) {
     var device = window.deviceType;
     $scope.deviceType = device;
 
+    $rootScope.connected = false;
     // Testpfad
-   // $location.path('/hbc/remote');
+    //$location.path('/ds/remote/about');
     //
 
 

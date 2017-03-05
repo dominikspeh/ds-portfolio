@@ -884,6 +884,7 @@ section.ds {
 
   a.box {
     display: block;
+    font-size: 20px;
   }
 
   .alert p {
@@ -925,6 +926,37 @@ section.ds {
   .fixfixed .header,
   .fixfixed .footer {
     position: absolute;
+  }
+
+  .mobilenav {
+    margin: 0;
+    padding: 0;
+
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+        border-bottom:1px solid $background;
+        padding-bottom: 5px;
+
+        span {
+          font-size: 32px;
+          color: $brand-primary
+        }
+      }
+
+  }
+
+  .mobileToggleNav {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+  .toggleNavContainer {
+    top: 112px;
+    left: 0px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
 

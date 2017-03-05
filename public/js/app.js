@@ -21,7 +21,16 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
         templateUrl: '/partials/smartphone/code'
     }).
     when('/ds/success', {
-        templateUrl: '/partials/desktop/success'
+        templateUrl: '/partials/smartphone/success'
+    }).
+    when('/ds/remote/about', {
+        templateUrl: '/partials/smartphone/about'
+    }).
+    when('/ds/remote/projects', {
+        templateUrl: '/partials/smartphone/projects'
+    }).
+    when('/ds/remote/contact', {
+        templateUrl: '/partials/smartphone/contact'
     }).
     when('/ds/about', {
         title: 'About me',
@@ -42,9 +51,6 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
     }).
     when('/ds/privacy', {
         templateUrl: '/partials/desktop/privacy'
-    }).
-    when('/ds/test', {
-        templateUrl: '/partials/' + window.deviceType + '/privacy'
     });
 
     $locationProvider.html5Mode({

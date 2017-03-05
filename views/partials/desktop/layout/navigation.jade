@@ -1,4 +1,4 @@
-header.topnavi.container.text-center(ng-show="!showNavigation")
+header.topnavi.container.text-center(ng-show="!showNavigation && connected == false")
 
         .row
             .col
@@ -17,10 +17,10 @@ header.topnavi.container.text-center(ng-show="!showNavigation")
                         a(href="#",ng-click="goToContact()", ng-class="{ active: isActive('/ds/contact')}") Contact
 aside.navigation
 
-    i.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}")
-    i.fa.fa-angle-left.back(ng-if="$route.current.$$route.templateUrl == '/partials/desktop/projectdetails'", ng-click="goToProjects()")
+    i.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}", ng-show="connected == false")
+    i.fa.fa-angle-left.back(ng-if="$route.current.$$route.templateUrl == '/partials/desktop/projectdetails'", ng-click="goToProjects()", ng-show="connected == false")
 
-    .current(ng-controller="PcProjectDetailsCtrl")
+    .current(ng-controller="PcProjectDetailsCtrl", ng-show="connected == false")
         p.currentPage {{$route.current.title || project.name}}
 
         // ABOUT
@@ -55,9 +55,9 @@ aside.navigation
 
 
 
-    i.fa.mobile.fa-mobile-phone(ng-click="showMobileNav = !showMobileNav ; showNavigation = false", ng-class="{'active':showMobileNav}")
+    i.fa.mobile.fa-mobile-phone(ng-click="showMobileNav = !showMobileNav ; showNavigation = false", ng-class="{'active':showMobileNav}", ng-show="connected == false")
 
-.naviContainer.fade(ng-show="showNavigation")
+.naviContainer.fade(ng-show="showNavigation && connected == false")
     .row
         ul
             li
@@ -81,13 +81,14 @@ aside.navigation
 
 
 
-.mobileContainer.fade.dark(ng-show="showMobileNav", ng-controller="PcCodeCtrl")
+.mobileContainer.fade.dark(ng-show="showMobileNav && connected == false", ng-controller="PcCodeCtrl")
 
     .row.align-items-center.justify-content-around.align-content-center
         .col-12.col-md-auto
             img(src='https://chart.googleapis.com/chart?cht=qr&chl=http%3A%2F%2F{{host}}{{code}}%2F&chs=150x150&choe=UTF-8&chld=L|2')
 
         .col
-            p {{ code1 }} {{ code2 }} {{ code3 }} {{ code4 }}
+            h2 {{ code1 }} {{ code2 }} {{ code3 }} {{ code4 }}
+            p Just visit the website with your mobile device and follow the instructions.
 
 

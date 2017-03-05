@@ -13,6 +13,7 @@ angular.module('ds.controllers.desktop', [
 controller('PcCodeCtrl', function ($scope, $rootScope, $location, socket) {
     socket.on('pair:sendCode', function(data) {
 
+
         $rootScope.url = $location.absUrl();
         $rootScope.host = $location.host()+"/";
         $rootScope.code  = data.code;
@@ -25,12 +26,13 @@ controller('PcCodeCtrl', function ($scope, $rootScope, $location, socket) {
 
     // To Succes-Page if Code is correct
     socket.on('pair:connected', function() {
-        $location.path('/ds/success');
+        $rootScope.connected = true;
+        $location.path('/');
     });
 
 
 }).
-controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $timeout) {
+controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $timeout, $rootScope) {
 
     $timeout(function () {
         $(".welcome").animateCss('fadeInDown');
@@ -54,6 +56,20 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $t
 
     });
 
+
+    // ON SOCKET EVENTS
+    socket.on('home:connected', function() {
+        $location.path('/');
+    });
+    socket.on('about:connected', function() {
+        $location.path('/ds/about');
+    });
+    socket.on('projects:connected', function() {
+        $location.path('/ds/projects');
+    });
+    socket.on('contact:connected', function() {
+        $location.path('/ds/contact');
+    });
 
     // Disconncted
     socket.on('disconnected', function() {

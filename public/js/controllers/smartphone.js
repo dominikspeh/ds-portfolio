@@ -6,7 +6,7 @@ angular.module('ds.controllers.smartphone', [
 // Code Controller
 controller('MobileCodeCtrl', function($scope,$rootScope, $routeParams, $timeout, $location, $window, socket) {
 
-    $(".ds").css("padding-right","0")
+
     if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
 
         $(document)
@@ -42,7 +42,6 @@ controller('MobileCodeCtrl', function($scope,$rootScope, $routeParams, $timeout,
 
     if(paramCode){
         fillForm(paramCode);
-        console.log("aa")
         $timeout(function () {
             socket.emit('pair:getCode', { code: paramCode});
         }, 2000);
@@ -140,5 +139,34 @@ controller('MobileCodeCtrl', function($scope,$rootScope, $routeParams, $timeout,
 
 // Main Controller / After Pairing
 controller("MobileMainCtrl", function ($scope, $routeParams, $timeout, $location, $window, socket, $rootScope) {
+    $(".ds").css("padding-right","0")
 
+
+    // EMIT
+    $scope.browserGoToHome = function () {
+        socket.emit('home:init', {});
+    };
+    $scope.browserGoToAbout = function () {
+        socket.emit('about:init', {});
+    };
+    $scope.browserGoToProjects = function () {
+        socket.emit('projects:init', {});
+    };
+    $scope.browserGoToContact = function () {
+        socket.emit('contact:init', {});
+    };
+
+    // ON
+    socket.on('home:connected', function () {
+        $location.path('/ds/success');
+    });
+    socket.on('about:connected', function () {
+        $location.path('/ds/remote/about');
+    });
+    socket.on('projects:connected', function () {
+        $location.path('/ds/remote/projects');
+    });
+    socket.on('contact:connected', function () {
+        $location.path('/ds/remote/contact');
+    });
 });

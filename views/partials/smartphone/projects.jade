@@ -1,0 +1,21 @@
+.mobile.orientationFalse(ng-controller="MobileMainCtrl")
+
+    .row.text-center.box(style="margin-top:1px")
+        .col-md-10
+            h2 Projects
+            i.mobileToggleNav.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}", ng-show="connected == false")
+
+    .row.text-center.toggleNavContainer
+        .col-md-12.fade.box(ng-show="showNavigation")
+            ul.mobilenav
+
+                li
+                    span(ng-click="browserGoToHome()") Home
+                li
+                    span(ng-click="browserGoToAbout()") About
+                li
+                    span( ng-click="browserGoToContact()") Contact
+
+
+
+

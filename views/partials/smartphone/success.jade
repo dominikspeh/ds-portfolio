@@ -1,8 +1,23 @@
 .mobile.orientationFalse(ng-controller="MobileMainCtrl")
 
-    .container
-        .row
-            .col-xs-12(style="margin-top: 200px")
-                h1 Success
+    .row.text-center
+        .col-md-12.box(style="margin-top:1px")
+            h2 You are connected to your browser
+            p Now you can control the website only with your mobile device.
+
+    .row.text-center
+        .col-md-12.box(style="margin-top:1px")
+            ul.mobilenav
+
+                li
+                    span(href="#", ng-click="browserGoToAbout()") About me
+
+                li
+                    span( ng-click="browserGoToProjects()") Projects
+
+                //li
+                    a(href="#") Blog
+                li
+                    span(ng-click="browserGoToContact()") Contact
 
 

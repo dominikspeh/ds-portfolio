@@ -626,7 +626,8 @@ section.ds {
     padding: 0;
     margin: 0; }
   .mobile a.box {
-    display: block; }
+    display: block;
+    font-size: 20px; }
   .mobile .alert p {
     color: white;
     text-align: center; }
@@ -657,6 +658,27 @@ section.ds {
   .mobile .fixfixed .header,
   .mobile .fixfixed .footer {
     position: absolute; }
+  .mobile .mobilenav {
+    margin: 0;
+    padding: 0; }
+    .mobile .mobilenav li {
+      list-style: none;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 5px; }
+      .mobile .mobilenav li span {
+        font-size: 32px;
+        color: #49afa4; }
+  .mobile .mobileToggleNav {
+    position: absolute;
+    right: 10px;
+    top: 5px; }
+  .mobile .toggleNavContainer {
+    top: 112px;
+    left: 0px;
+    width: 100%;
+    margin: 0;
+    padding: 0; }
 
 @media (max-width: 1000px) {
   .mobileonly {

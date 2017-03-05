@@ -83,6 +83,54 @@ module.exports = function(socket) {
             console.log("error")
         }
     });
+
+    // User to Home
+    socket.on('home:init', function() {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('home:connected', {});
+            socket.emit('home:connected',{});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
+    // User to About
+    socket.on('about:init', function() {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('about:connected', {});
+            socket.emit('about:connected',{});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
+    // User to Projects
+    socket.on('projects:init', function() {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('projects:connected', {});
+            socket.emit('projects:connected',{});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
+    // User to Contact
+    socket.on('contact:init', function() {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('contact:connected', {});
+            socket.emit('contact:connected',{});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
 }
 
 
