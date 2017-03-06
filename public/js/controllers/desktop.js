@@ -83,6 +83,7 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $t
 
 
     // Disconncted
+
     socket.on('disconnected', function() {
         $window.location.reload();
 
@@ -123,6 +124,16 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $t
         var divWidth = $('.instagram img').width();
         $('.instagram img').height(divWidth);
     });
+
+    if($rootScope.connected == true){
+        console.log("here")
+        $('body').click(function() {
+            return false; });
+
+        $('body').bind("mousewheel", function() {
+            return false;
+        });
+    }
 }).
 
 controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window) {
