@@ -16,6 +16,20 @@
                 li
                     span( ng-click="browserGoToContact()") Contact
 
+    .row.text-center(ng-controller="MobileProjectCtrl")
+        .col-md-12.box.projectbox(ng-repeat="project in allProjects", ng-click="goToDetail(project.alias)")
+            .projectimage
+                img(ng-src="{{project.thumbpath}}")
+            .projectcontent
+                h5 {{project.name}}
+                span {{project.type}}
+            .more
+                i.ion.ion-chevron-right
+
+
+
+
+
 
 
 

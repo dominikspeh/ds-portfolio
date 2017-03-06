@@ -29,7 +29,10 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
     when('/ds/remote/projects', {
         templateUrl: '/partials/smartphone/projects'
     }).
-    when('/ds/remote/contact', {
+    when('/ds/remote/projects/:alias', {
+        templateUrl: '/partials/smartphone/projectdetails'
+    }).
+     when('/ds/remote/contact', {
         templateUrl: '/partials/smartphone/contact'
     }).
     when('/ds/about', {

@@ -877,6 +877,7 @@ section.ds {
 }
 
 .mobile {
+  overflow: hidden;
   .ds {
     padding: 0;
     margin: 0;
@@ -946,6 +947,11 @@ section.ds {
 
   }
 
+  .backlink {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+  }
   .mobileToggleNav {
     position: absolute;
     right: 10px;
@@ -957,14 +963,53 @@ section.ds {
     width: 100%;
     margin: 0;
     padding: 0;
+    position: fixed;
+    z-index: 999;
+
   }
 
+  .box.disabled.dark {
+    opacity: 0.1;
+  }
+
+  a.btn-primary {
+    color: $background;
+  }
+
+  .projectbox {
+    flex-direction: row;
+    padding: 25px;
+
+    .projectimage {
+      width: 35%;
+      float: left;
+    }
+    .projectcontent {
+      width: 65%;
+      float: left;
+
+      h5 {
+        font-size: 16px;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
 
 
 }
 // Responsive
 @media (max-width: 1000px) {
 
+  p {
+    i {
+      margin-right: 5px;
+    }
+  }
+  .box.dark {
+    background: $brand-primary
+  }
   .mobileonly {
     display: block;
   }

@@ -155,6 +155,9 @@ controller("MobileMainCtrl", function ($scope, $routeParams, $timeout, $location
     $scope.browserGoToContact = function () {
         socket.emit('contact:init', {});
     };
+    $scope.externalLink = function (data) {
+        socket.emit('externalLink:init', {url: data });
+    };
 
     // ON
     socket.on('home:connected', function () {
@@ -169,4 +172,87 @@ controller("MobileMainCtrl", function ($scope, $routeParams, $timeout, $location
     socket.on('contact:connected', function () {
         $location.path('/ds/remote/contact');
     });
+}).
+
+// Main Controller / After Pairing
+controller("MobileAboutCtrl", function ($scope, $routeParams, $timeout, $location, $window, socket, $rootScope) {
+
+    $scope.currentSection = 1;
+    $scope.activeSkill = 0;
+    $scope.maxSize = 4;
+
+    $scope.changeSection = function (newSection) {
+        $scope.currentSection = newSection;
+        socket.emit('fullpage:moveSection', {goToSection: newSection});
+    };
+
+    $scope.changeSkills = function (newSkill) {
+        $scope.activeSkill = newSkill;
+        socket.emit('about:skillInit', {skill: newSkill});
+    };
+
+}).
+controller("MobileProjectCtrl", function ($scope, $timeout, $location, socket, $http) {
+
+    $scope.allProjects = "";
+
+    $http.get('/api/json/get/projects').then(function (res) {
+        $scope.allProjects = res.data;
+
+    });
+
+    $scope.goToDetail = function (alias) {
+        socket.emit('project:detailInit', {alias: alias});
+    }
+
+    socket.on('project:showDetail', function (data) {
+        $location.path('/ds/remote/projects/'+data.alias);
+    });
+}).
+controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, socket, $http, $route) {
+
+    $scope.currentSection = 1;
+    $scope.activeSkill = 0;
+    $scope.maxSize
+
+    $scope.changeSection = function (newSection) {
+        $scope.currentSection = newSection;
+        socket.emit('fullpage:moveSection', {goToSection: newSection});
+    };
+
+    $timeout(function () {
+        var config = {
+            data:  $route.current.params.alias,
+            params: {alias: $route.current.params.alias}
+        }
+
+        $scope.project = "";
+
+        $http.get('/api//json/get/project/detail',config).then(function (res) {
+            $scope.project = res.data;
+            $(".projectdetails").animateCss('fadeIn');
+            $(".projectdetails").css("opacity","1")
+
+            if($scope.project.galerie.length > 0 && $scope.project.process.length > 0){
+                $scope.maxSize = 3
+            }
+            if($scope.project.galerie.length > 0 && $scope.project.process.length == 0){
+                $scope.maxSize = 2
+            }
+            if($scope.project.galerie.length == 0 && $scope.project.process.length == 0){
+                $scope.maxSize = 1
+            }
+            console.log($scope.maxSize);
+
+            $('.slider').carousel({
+                interval: 5000,
+                pause: false
+            })
+
+        });
+
+
+    },0)
 });
+
+

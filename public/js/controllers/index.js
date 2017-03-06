@@ -8,7 +8,7 @@ controller('HeadCtrl', function ($scope, socket, $rootScope, $location) {
 
     $rootScope.connected = false;
     // Testpfad
-    //$location.path('/ds/remote/about');
+    //$location.path('/ds/remote/projects/leader-oberschwaben-2016');
     //
 
 

@@ -107,6 +107,25 @@ module.exports = function(socket) {
             console.log("error");
         }
     });
+    socket.on('fullpage:moveSection', function(data) {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('fullpage:moveToSection', {goToSection: data.goToSection});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
+    socket.on('about:skillInit', function(data) {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('about:changeSkills', {skill: data.skill});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
 
     // User to Projects
     socket.on('projects:init', function() {
@@ -120,6 +139,19 @@ module.exports = function(socket) {
         }
     });
 
+    socket.on('project:detailInit', function(data) {
+
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('project:showDetail', {alias: data.alias});
+            socket.emit('project:showDetail',{alias: data.alias});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
+
     // User to Contact
     socket.on('contact:init', function() {
         if(socket.code && socket.code in socketCodes) {
@@ -131,7 +163,23 @@ module.exports = function(socket) {
             console.log("error");
         }
     });
-}
+
+
+
+    // EXTERNAL
+    socket.on('externalLink:init', function(data) {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('externalLink:connected', {url: data.url});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+};
+
+
+
 
 
 

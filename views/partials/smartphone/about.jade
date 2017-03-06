@@ -20,4 +20,47 @@
                 li
                     span(ng-click="browserGoToContact()") Contact
 
+    .row.text-center.flex-column(style="margin-top: 0px", ng-controller="MobileAboutCtrl")
+        .col-md-12.box.dark(ng-class="{'disabled': currentSection == 1}", ng-click="currentSection == 1 || changeSection(currentSection-1)")
+            p
+                i.fa.fa-arrow-up
+                | Scroll Up
+        .col-md-12.box
+            .row(ng-if="currentSection == 1")
+                .col-md-12
+                    h3 About me
+                    p On click, a new Browser Tab will open
+                .col-md-12
+                    a.btn.btn-primary(ng-click="externalLink('https://www.xing.com/profile/Dominik_Speh')") Xing
+                    a.btn.btn-primary(ng-click="externalLink('https://github.com/dominikspeh')") GitHub
+                    a.btn.btn-primary(ng-click="externalLink('https://instagram.com/domspeh')") Instagram
+
+            .row(ng-if="currentSection == 2")
+                .col-md-12
+                    h3 Skills
+                    p Choose the category
+                .col-md-12
+                    span.btn.btn-primary(ng-click="changeSkills(0)", ng-class="{'active': activeSkill == 0}") Languages
+                    span.btn.btn-primary(ng-click="changeSkills(1)", ng-class="{'active': activeSkill == 1}") Frameworks
+                    span.btn.btn-primary(ng-click="changeSkills(2)", ng-class="{'active': activeSkill == 2}") Others
+
+            .row(ng-if="currentSection == 3")
+                .col-md-12
+                    h3 Vita
+                    p On the desktop you can see my vita.
+                .col-md-12
+
+            .row(ng-if="currentSection == 4")
+                .col-md-12
+                    h3 Certificates
+                    p Here are some certificates
+                .col-md-12
+
+
+        .col-md-12.box.dark(ng-class="{'disabled': currentSection == 4}", ng-click="currentSection == 4 || changeSection(currentSection+1)")
+            p
+                i.fa.fa-arrow-down
+                | Scroll Down
+
+
 

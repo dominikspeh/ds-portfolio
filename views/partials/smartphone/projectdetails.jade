@@ -1,0 +1,60 @@
+.mobile.orientationFalse(ng-controller="MobileMainCtrl")
+
+    .ctr(ng-controller="MobileProjectDetailCtrl")
+        .row.text-center.box(style="margin-top:1px")
+            .col-md-10
+                i.ion.ion-chevron-left.backlink(ng-click="browserGoToProjects()")
+                h2 {{project.name}}
+                i.mobileToggleNav.fa.fa-bars.nav(ng-click="showNavigation = !showNavigation; showMobileNav = false", ng-class="{'active':showNavigation}", ng-show="connected == false")
+
+        .row.text-center.toggleNavContainer
+            .col-md-12.fade.box(ng-show="showNavigation")
+                ul.mobilenav
+
+                    li
+                        span(ng-click="browserGoToHome()") Home
+                    li
+                        span(ng-click="browserGoToAbout()") About
+                    li
+                        span(ng-click="browserGoToProjects()") Projects
+                    li
+                        span( ng-click="browserGoToContact()") Contact
+
+        .row.text-center.flex-column
+            .col-md-12.box.dark(ng-class="{'disabled': currentSection == 1}", ng-click="currentSection == 1 || changeSection(currentSection-1)")
+                p
+                    i.fa.fa-arrow-up
+                    | Scroll Up
+            .col-md-12.box
+                .row(ng-if="currentSection == 1")
+                    .col-md-12
+                        h3 Informations
+                        p Type, Project duration and some more
+
+                .row(ng-if="currentSection == 2 && project.process.length != 0")
+                    .col-md-12
+                        h3 Workflow
+                        p Step by step
+
+                .row(ng-if="currentSection == 2 && project.process.length == 0 || currentSection == 3")
+                    .col-md-12
+                        h3 Galerie
+                        p Some image about the project
+
+
+
+
+
+
+            .col-md-12.box.dark(ng-class="{'disabled': currentSection == maxSize}", ng-click="currentSection == 4 || changeSection(currentSection+1)")
+                p
+                    i.fa.fa-arrow-down
+                    | Scroll Down
+
+
+
+
+
+
+
+

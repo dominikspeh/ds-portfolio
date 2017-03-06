@@ -71,6 +71,17 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $t
         $location.path('/ds/contact');
     });
 
+    socket.on('externalLink:connected', function(data) {
+        $window.open(data.url, '_blank');
+    });
+
+    socket.on('fullpage:moveToSection', function(data) {
+        $.fn.fullpage.moveTo(data.goToSection);
+
+    });
+
+
+
     // Disconncted
     socket.on('disconnected', function() {
         $window.location.reload();
@@ -203,6 +214,15 @@ controller('PcAboutCtrl', function ($scope, $timeout,$location, socket, $window)
     },0)
 
 
+    // SOCKET EVENTS
+
+    socket.on('about:changeSkills', function(data) {
+        $scope.showSkill(data.skill)
+
+    });
+
+
+
 }).
 controller('PcMapCtrl', function($scope, NgMap) {
     $scope.coordinates = {
@@ -225,7 +245,7 @@ controller('PcMapCtrl', function($scope, NgMap) {
 
     });
 }).
-controller('PcProjectsCtrl', function ($scope, $http) {
+controller('PcProjectsCtrl', function ($scope, $http, $location, socket) {
 
     $scope.allProjects = "";
 
@@ -234,6 +254,11 @@ controller('PcProjectsCtrl', function ($scope, $http) {
         $(".projects").animateCss('zoomIn');
         $(".projects").css("opacity","1")
 
+    });
+
+    socket.on('project:showDetail', function (data) {
+        console.log(data)
+        $location.path('/ds/projects/'+data.alias);
     });
 
 
