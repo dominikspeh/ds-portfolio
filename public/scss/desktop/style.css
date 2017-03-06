@@ -287,6 +287,12 @@ section.ds {
   justify-content: center;
   align-items: center; }
 
+.box.small {
+  padding: 7px; }
+  .box.small p {
+    margin: 0;
+    padding: 0; }
+
 .section {
   overflow: hidden; }
 

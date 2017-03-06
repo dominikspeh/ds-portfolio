@@ -176,7 +176,10 @@ controller("MobileMainCtrl", function ($scope, $routeParams, $timeout, $location
 
 // Main Controller / After Pairing
 controller("MobileAboutCtrl", function ($scope, $routeParams, $timeout, $location, $window, socket, $rootScope) {
+    var sections = ["No more section","About me","Skills","Vita","Certificates","No more section"];
 
+    $scope.prevSection = "",
+    $scope.nextSection = "Skills";
     $scope.currentSection = 1;
     $scope.activeSkill = 0;
     $scope.maxSize = 4;
@@ -184,6 +187,10 @@ controller("MobileAboutCtrl", function ($scope, $routeParams, $timeout, $locatio
     $scope.changeSection = function (newSection) {
         $scope.currentSection = newSection;
         socket.emit('fullpage:moveSection', {goToSection: newSection});
+
+        $scope.prevSection = sections[newSection-1];
+        $scope.nextSection = sections[newSection+1];
+
     };
 
     $scope.changeSkills = function (newSkill) {
@@ -210,7 +217,10 @@ controller("MobileProjectCtrl", function ($scope, $timeout, $location, socket, $
     });
 }).
 controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, socket, $http, $route) {
-
+    var sectionOne = ["No more sections","Project informations","Workflow", "Gallery"];
+    var sectionTwo = ["No more sections","Project informations", "Gallery"];
+    $scope.prevSection = "";
+    $scope.nextSection = "";
     $scope.currentSection = 1;
     $scope.activeSkill = 0;
     $scope.maxSize
@@ -218,6 +228,16 @@ controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, soc
     $scope.changeSection = function (newSection) {
         $scope.currentSection = newSection;
         socket.emit('fullpage:moveSection', {goToSection: newSection});
+
+        if($scope.maxSize == 3){
+            $scope.prevSection = sectionOne[newSection-1];
+            $scope.nextSection = sectionOne[newSection+1];
+        }
+        if($scope.maxSize == 2){
+            $scope.prevSection = sectionTwo[newSection-1];
+            $scope.nextSection = sectionTwo[newSection+1];
+        }
+
     };
 
     $timeout(function () {
@@ -231,18 +251,20 @@ controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, soc
         $http.get('/api//json/get/project/detail',config).then(function (res) {
             $scope.project = res.data;
             $(".projectdetails").animateCss('fadeIn');
-            $(".projectdetails").css("opacity","1")
+            $(".projectdetails").css("opacity","1");
 
             if($scope.project.galerie.length > 0 && $scope.project.process.length > 0){
                 $scope.maxSize = 3
+                $scope.nextSection = "Workflow";
             }
             if($scope.project.galerie.length > 0 && $scope.project.process.length == 0){
                 $scope.maxSize = 2
+                $scope.nextSection = "Gallery";
             }
             if($scope.project.galerie.length == 0 && $scope.project.process.length == 0){
                 $scope.maxSize = 1
+                $scope.nextSection = "No more section";
             }
-            console.log($scope.maxSize);
 
             $('.slider').carousel({
                 interval: 5000,

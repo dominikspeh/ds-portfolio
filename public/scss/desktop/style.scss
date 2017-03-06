@@ -383,7 +383,13 @@ section.ds {
   align-items: center;
 
 }
-
+.box.small {
+  padding: 7px;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
 .section {
   overflow: hidden;
  // padding-bottom: 65px;

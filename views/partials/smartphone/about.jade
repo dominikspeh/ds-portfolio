@@ -24,7 +24,7 @@
         .col-md-12.box.dark(ng-class="{'disabled': currentSection == 1}", ng-click="currentSection == 1 || changeSection(currentSection-1)")
             p
                 i.fa.fa-arrow-up
-                | Scroll Up
+                | {{prevSection}}
         .col-md-12.box
             .row(ng-if="currentSection == 1")
                 .col-md-12
@@ -60,7 +60,7 @@
         .col-md-12.box.dark(ng-class="{'disabled': currentSection == 4}", ng-click="currentSection == 4 || changeSection(currentSection+1)")
             p
                 i.fa.fa-arrow-down
-                | Scroll Down
+                | {{nextSection}}
 
 
 
