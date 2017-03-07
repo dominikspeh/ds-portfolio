@@ -93,7 +93,7 @@
 
 
 
-    .scroll(ng-show="project.galerie.length > 0")
+    .scroll(ng-show="project.galerie.length > 0 || connected == false && project.galerie.length > 0")
         img.scrolldown(src="/img/scrolldown.gif")
         span SCROLL
 

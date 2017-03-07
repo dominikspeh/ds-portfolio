@@ -126,13 +126,20 @@ controller('PcMainCtrl', function ($scope, $location, socket, $window, $http, $t
     });
 
     if($rootScope.connected == true){
-        console.log("here")
+
+
         $('body').click(function() {
+            $scope.eventEmit = true;
+
             return false; });
 
         $('body').bind("mousewheel", function() {
+            $scope.eventEmit = true;
+
             return false;
         });
+
+        $(".scroll").hide();
     }
 }).
 
@@ -310,7 +317,7 @@ controller('PcProjectDetailsCtrl', function ($scope, $rootScope, $route, $http, 
 
 }).
 
-controller('PcContactCtrl', function ($timeout, $scope, $route, $http) {
+controller('PcContactCtrl', function ($timeout, $scope, $route, $http, socket,$rootScope) {
 
     $scope.sended = false;
 
@@ -323,7 +330,21 @@ controller('PcContactCtrl', function ($timeout, $scope, $route, $http) {
             sectionsColor: ['#e8e8e8', '#34495e', '#ffffff', '#e8e8e8'],
 
         });
-    },0)
+    },0);
+
+
+    if($rootScope.connected == true) {
+        $("textarea, input").keydown(false);
+    };
+    socket.on('contact:content', function (data) {
+        $scope.name = data.name;
+        $scope.mail = data.mail;
+        $scope.message = data.message;
+    });
+
+    socket.on('contact:sendForm', function (data) {
+       $scope.submit();
+    });
 
     $scope.submit = function () {
 

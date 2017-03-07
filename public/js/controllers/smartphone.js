@@ -275,6 +275,27 @@ controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, soc
 
 
     },0)
+}).
+controller("MobileContactCtrl", function ($scope, $timeout, $location, socket, $http, $route) {
+
+    $("input, textarea").keyup(function () {
+        socket.emit('contact:deliverContent',
+            {
+                name: $scope.name,
+                mail: $scope.mail,
+                message: $scope.message
+
+            });
+    })
+
+    $scope.sendMailMessage = function () {
+        console.log("click")
+        socket.emit('contact:sendInit', {});
+    }
+
+    socket.on('contact:sendFormMobile', function (data) {
+        $scope.name = "";
+        $scope.mail = "";
+        $scope.message = ""
+    });
 });
-
-

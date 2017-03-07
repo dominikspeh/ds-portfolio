@@ -16,6 +16,21 @@
                 li
                     span( ng-click="browserGoToProjects()") Projects
 
+    .row(ng-controller="MobileContactCtrl")
+
+        .col-md-12
+            .container.text-center
+                p(style="margin-top:20px") For contacting me, just fill out the contact form.
+
+                form.formbody(name="contactform" novalidate="true" ng-submit="sendMailMessage()")
+                    .form-group
+                        input.form-control.text-xs-center.m-b-1(ng-model="name",type="text",  required="true", placeholder="Name")
+                    .form-group
+                        input.form-control.text-xs-center.m-b-1(ng-model="mail", type="email",  required="true", placeholder="Mail")
+                    .form-group
+                        textarea.form-control.text-xs-center.m-b-1(ng-model="message",type="text",  rows="4", required="true", placeholder="Message")
+                    .form-group
+                        input.form-control.btn.btn-primary(translate="Form-Submit",type="submit", ng-disabled="contactform.$invalid")
 
 
 

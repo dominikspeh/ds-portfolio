@@ -288,7 +288,8 @@ section.ds {
   align-items: center; }
 
 .box.small {
-  padding: 7px; }
+  padding: 7px;
+  transition: 1s all; }
   .box.small p {
     margin: 0;
     padding: 0; }

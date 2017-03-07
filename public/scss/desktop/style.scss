@@ -385,11 +385,13 @@ section.ds {
 }
 .box.small {
   padding: 7px;
+  transition: 1s all;
   p {
     margin: 0;
     padding: 0;
   }
 }
+
 .section {
   overflow: hidden;
  // padding-bottom: 65px;

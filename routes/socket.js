@@ -164,6 +164,35 @@ module.exports = function(socket) {
         }
     });
 
+    socket.on('contact:deliverContent', function(data) {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('contact:content',
+                {
+                    name: data.name,
+                    mail: data.mail,
+                    message: data.message
+
+                });
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+    socket.once('contact:sendInit', function(data) {
+
+
+        if(socket.code && socket.code in socketCodes) {
+            console.log(data);
+            socketCodes[socket.code].emit('contact:sendForm',{});
+            socket.emit('contact:sendFormMobile',{});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
 
 
     // EXTERNAL
