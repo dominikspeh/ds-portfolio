@@ -12,7 +12,7 @@ config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
         templateUrl: '/partials/' + window.deviceType + '/index'
     }).
     when('/:code', {
-        templateUrl: '/partials/desktop/index'
+        templateUrl: '/partials/smartphone/code'
     }).
     when('/ds/mobile', {
         templateUrl: '/partials/desktop/index'
