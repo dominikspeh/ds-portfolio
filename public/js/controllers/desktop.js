@@ -281,7 +281,7 @@ controller('PcProjectsCtrl', function ($scope, $http, $location, socket) {
 
 
 }).
-controller('PcProjectDetailsCtrl', function ($scope, $rootScope, $route, $http, $timeout) {
+controller('PcProjectDetailsCtrl', function ($scope, $rootScope, $route, $http, $timeout, socket) {
 
 
 
@@ -312,7 +312,10 @@ controller('PcProjectDetailsCtrl', function ($scope, $rootScope, $route, $http, 
 
 
 
+    socket.on('video:playVideo', function(data) {
 
+        $("#video")[0].src = $scope.project.video+"?autoplay=1";
+    });
 
 
 }).

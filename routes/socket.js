@@ -151,6 +151,16 @@ module.exports = function(socket) {
         }
     });
 
+    socket.on('video:playInit', function(data) {
+        if(socket.code && socket.code in socketCodes) {
+            socketCodes[socket.code].emit('video:playVideo', {});
+        }
+        else {
+            socket.emit('connect:fail',{});
+            console.log("error");
+        }
+    });
+
 
     // User to Contact
     socket.on('contact:init', function() {

@@ -48,6 +48,8 @@ aside.navigation
             i.fa.fa-info
         span(data-toggle='tooltip', data-placement='left', title='Process', ng-if="project.process.length > 0",ng-click="moveTo(2)")
             i.ion-loop
+        span(data-toggle='tooltip', data-placement='left', title='Process', ng-if="project.video",ng-click="moveTo(2)")
+            i.ion-ios-videocam
 
 
         span(data-toggle='tooltip', data-placement='left', title='Galerie', ng-if="project.galerie.length > 0 && project.process.length > 0 ",ng-click="moveTo(3)")

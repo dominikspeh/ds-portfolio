@@ -482,11 +482,24 @@ section.ds {
   .languages li.frameworks, .frameworks li.frameworks {
     background-color: #34495e; }
 
+.competences {
+  margin-left: 10px;
+  padding: 5px;
+  margin-top: -2px;
+  font-weight: 300;
+  font-size: 9px !important;
+  border-radius: 10px;
+  background-color: white; }
+
 .projectdetails {
   opacity: 0; }
+  .projectdetails .competences {
+    margin-bottom: 10px; }
   .projectdetails h5 {
     margin: 30px 0 20px 0;
     font-size: 15px; }
+  .projectdetails .lead {
+    margin-top: 20px; }
   .projectdetails .github {
     margin-top: 40px;
     padding: 5px !important; }
@@ -499,6 +512,9 @@ section.ds {
     width: 100%; }
   .projectdetails .textArea {
     border-left: 1px solid #49afa4; }
+  .projectdetails iframe {
+    width: 100%;
+    min-height: 500px; }
   .projectdetails .galerie {
     height: 100vh; }
     .projectdetails .galerie .imac {
@@ -900,7 +916,11 @@ section.ds {
     bottom: 70px; }
 
   .boringRow .col-md-6:nth-child(n+2) {
-    display: none !important; } }
+    display: none !important; }
+
+  iframe {
+    width: 100%;
+    height: 500px; } }
 @media (max-width: 1000px) and (min-width: 600px) {
   .welcome {
     height: 100vh; }

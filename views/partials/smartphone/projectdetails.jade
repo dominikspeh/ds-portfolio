@@ -36,10 +36,15 @@
                         h3 Workflow
                         p Step by step
 
-                .row(ng-if="currentSection == 2 && project.process.length == 0 || currentSection == 3")
+                .row(ng-if="currentSection == 2 && !project.video && project.process.length == 0 || currentSection == 3")
                     .col-md-12
                         h3 Galerie
                         p Some image about the project
+
+                .row(ng-if="currentSection == 2 && project.video")
+                    .col-md-12
+                        h3 Video
+                        span.btn.btn-primary(ng-click="playVideo()") Start Video
 
 
 

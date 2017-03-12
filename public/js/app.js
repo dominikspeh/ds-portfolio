@@ -4,6 +4,12 @@ angular.module('ds',['angular-loading-bar','ngMap','ngAnimate','btford.socket-io
 factory('socket', function(socketFactory) {
     return socketFactory();
 }).
+
+filter('trustAsResourceUrl', ['$sce', function($sce) {
+        return function(val) {
+            return $sce.trustAsResourceUrl(val);
+        };
+}]).
 config(function ($routeProvider, $locationProvider, AnalyticsProvider ) {
     AnalyticsProvider.setAccount('UA-52323715-7');
 

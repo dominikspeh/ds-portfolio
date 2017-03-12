@@ -8,7 +8,7 @@ controller('HeadCtrl', function ($scope, socket, $rootScope, $location) {
 
     $rootScope.connected = false;
     // Testpfad
-    //$location.path('/ds/remote/contact');
+    //$location.path('/ds/remote/projects/geolo-app-2016');
     //
 
 

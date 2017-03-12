@@ -668,13 +668,28 @@ section.ds {
 
   }
 }
-
+.competences {
+  margin-left: 10px;
+  padding: 5px;
+  margin-top: -2px;
+  font-weight: 300;
+  font-size: 9px!important;
+  border-radius: 10px;
+  background-color: white;
+}
 .projectdetails {
-
   opacity: 0;
+
+  .competences {
+    margin-bottom: 10px;
+  }
+
   h5 {
     margin:30px 0 20px 0;
     font-size: 15px;
+  }
+  .lead {
+    margin-top: 20px;
   }
   .github {
     margin-top: 40px;
@@ -689,6 +704,7 @@ section.ds {
       font-size: 12px;
     }
   }
+
   .header {
     img {
       width: 100%;
@@ -696,6 +712,10 @@ section.ds {
   }
   .textArea {
     border-left:1px solid $brand-primary
+  }
+  iframe {
+    width: 100%;
+    min-height: 500px
   }
   .galerie {
     height: 100vh;
@@ -1319,6 +1339,11 @@ section.ds {
     .col-md-6:nth-child(n+2) {
       display: none!important;
     }
+  }
+
+  iframe {
+    width: 100%;
+    height: 300px
   }
 
 

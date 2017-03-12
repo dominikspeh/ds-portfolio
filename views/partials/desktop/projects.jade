@@ -11,6 +11,7 @@
                     img(ng-src="{{project.thumbpath}}")
                 h5 {{project.name}}
                 span {{project.type}}
+                span.competences(ng-repeat="competence in project.competence") {{competence}}
 
                 ul.languages
                     li(ng-repeat="language in project.languages") {{language}}

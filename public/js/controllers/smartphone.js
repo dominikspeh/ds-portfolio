@@ -240,6 +240,10 @@ controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, soc
 
     };
 
+    $scope.playVideo = function () {
+        socket.emit('video:playInit', {});
+    }
+
     $timeout(function () {
         var config = {
             data:  $route.current.params.alias,
@@ -261,7 +265,11 @@ controller("MobileProjectDetailCtrl", function ($scope, $timeout, $location, soc
                 $scope.maxSize = 2
                 $scope.nextSection = "Gallery";
             }
-            if($scope.project.galerie.length == 0 && $scope.project.process.length == 0){
+            if($scope.project.video){
+                $scope.maxSize = 2;
+                $scope.nextSection = "Gallery";
+            }
+            if($scope.project.galerie.length == 0 && $scope.project.process.length == 0 && !$scope.project.video){
                 $scope.maxSize = 1
                 $scope.nextSection = "No more section";
             }

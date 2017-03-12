@@ -11,6 +11,7 @@
                         img(ng-src="{{project.image}}")
                     .col-md-4.text-center
                         h5 {{project.type}}
+                        span.competences(ng-repeat="competence in project.competence") {{competence}}
                         p.lead {{project.time}}
                         hr
                         p {{project.description}}
@@ -53,7 +54,6 @@
                             span {{process}}
 
 
-
         #section2.section(ng-if="project.galerie.length > 0 && project.type =='Website'")
             .row.galerie.text-center.align-content-center.align-items-center.justify-content-center
                 .col-md-1
@@ -69,7 +69,7 @@
                     h4 {{project.type}}
                     p.lead {{project.name}}
                     hr
-                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank") Show live
+                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank", ng-if="project.url") Show live
 
         #section3.section(ng-if="project.galerie.length > 0 && project.type !='Website'")
             .row.galerie.text-center.align-content-center.align-items-center.justify-content-center
@@ -87,7 +87,21 @@
                     h4 {{project.type}}
                     p.lead {{project.name}}
                     hr
-                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank" ng-if="project.url") Show live
+                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank", ng-if="project.url!==undefined") Show live
+
+        #section4.section(ng-if="project.video")
+            .row.galerie.text-center.align-content-center.align-items-center.justify-content-center
+                .col-md-1
+                .col-md-8.galeriebox.align-content-center.flex-column.align-items-center.justify-content-center
+                    iframe#video(src='{{project.video | trustAsResourceUrl}}', frameborder='0', allowfullscreen='')
+
+
+                .col-md-3.projectlink
+                    h4 {{project.type}}
+                    p.lead {{project.name}}
+                    hr
+                    a.btn-primary.btn(ng-href="{{project.url}}", target="blank", ng-if="project.url") Show live
+
 
 
 

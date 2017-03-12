@@ -15,10 +15,12 @@ const projectsSchema = new mongoose.Schema({
     galerie: Array,
     like: "String",
     github: "String",
+    video: "String",
     pinned: Boolean,
     languages: Array,
     frameworks: Array,
     process: Array,
+    competence: Array,
     comments: [
         {
             name: String,
