@@ -18,6 +18,12 @@
 body {
   background-color: #e8e8e8; }
 
+.remote {
+  position: absolute;
+  bottom: 20px;
+  right: 90px;
+  z-index: 4; }
+
 .bgImage {
   width: 100%; }
 

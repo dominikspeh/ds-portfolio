@@ -3,6 +3,7 @@ div(ng-controller='PcCodeCtrl')
 
 
         include layout/navigation
+        img.remote(src="img/remote.png", ng-if="connected == false")
         .row.height100vh.startbox
             .col-md-1
             .col-md-10
@@ -13,7 +14,7 @@ div(ng-controller='PcCodeCtrl')
                             p Here you can find out all about me, my skills and my projects.
 
                     .container
-                        .row.infoboxes.text-center(style="margin-top:70px")
+                        .row.infoboxes.text-center(style="margin-top:30px")
                             .col-md-4.box.justify-content-start.instabox
                                 h4
                                     i.fa.fa-instagram

@@ -4,6 +4,12 @@ body {
   background-color: $background;
 
 }
+.remote {
+  position: absolute;
+  bottom: 20px;
+  right: 90px;
+  z-index: 4;
+}
 .bgImage {
   width: 100%;
 }
