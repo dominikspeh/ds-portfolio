@@ -38,16 +38,16 @@ aside.navigation
             i.fa.fa-certificate
 
         // Projects
+        span.currentFilter {{currentFilter}}
 
-        //span.filter(ng-if="isActive('/ds/projects')", ng-click="showFilterNav = !showFilterNav ; showNavigation = false", ng-show="connected == false")
-            i.fa.fa-filter
-            .filterOn(ng-show="showFilterNav")
 
-                i.fa.fa-code
+        .filterOn( ng-if="isActive('/ds/projects')",ng-show="connected == false")
+            i.fa.fa-filter(ng-click="filterProjects('All')",ng-class="{'active':currentFilter == 'All'}")
+            i.fa.fa-code(ng-click="filterProjects('Development')",ng-class="{'active':currentFilter == 'Development'}")
 
-                i.ion.ion-paintbrush
+            i.ion.ion-paintbrush(ng-click="filterProjects('Web Design')",ng-class="{'active':currentFilter == 'Web Design'}")
 
-                i.ion.ion-iphone
+            i.ion.ion-iphone(ng-click="filterProjects('App Design')",ng-class="{'active':currentFilter == 'App Design'}")
 
         // Project Details
 

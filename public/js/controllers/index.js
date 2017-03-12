@@ -21,6 +21,26 @@ controller('HeadCtrl', function ($scope, socket, $rootScope, $location) {
 controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $location, socket, $window) {
     $scope.showMobileNav = false;
     $scope.showFilterNav = false;
+    $scope.currentFilter = "All" ;
+
+
+    $scope.filterProjects = function (filter) {
+        $(".projects .col").show();
+        $scope.currentFilter  = filter;
+
+        if(filter != "All"){
+            $(".projects .col").each(function () {
+                if($.inArray(filter, $(this).data("tags"))== -1){
+
+                    $(this).fadeOut();
+                }
+
+            });
+
+        }
+
+
+    }
     $scope.$route = $route;
 
     $scope.isActive = function (viewLocation) {

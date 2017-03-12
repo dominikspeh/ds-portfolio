@@ -287,17 +287,7 @@ section.ds {
   z-index: 99;
 
 }
-.filter:hover {
 
-
-  i {
-    background: none!important;
-
-  }
-  i:hover {
-    background: $secondary-color!important;
-  }
-}
 // WELCOME
 .welcome {
   opacity: 0;
@@ -474,7 +464,13 @@ section.ds {
   }
 }
 
-
+i.active {
+  background-color: $secondary-color;
+}
+.currentFilter {
+  font-size: 10px;
+  color: white
+}
 // VITA
 .height100vh {
   height: 100vh;

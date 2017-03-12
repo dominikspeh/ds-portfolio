@@ -4,7 +4,7 @@
         .row
 
         .row
-            .col(ng-repeat="project in allProjects", ng-attr-data-tags="{{project.competence}}")
+            .col(ng-repeat="project in allProjects", data-tags="{{project.competence}}")
                 figure
                     .edit
                         a.btn.btn-primary(ng-href="projects/{{project.alias}}") Show

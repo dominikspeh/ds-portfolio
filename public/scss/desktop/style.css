@@ -225,11 +225,6 @@ section.ds {
   color: white;
   z-index: 99; }
 
-.filter:hover i {
-  background: none !important; }
-.filter:hover i:hover {
-  background: #34495e !important; }
-
 .welcome {
   opacity: 0;
   display: flex;
@@ -352,6 +347,13 @@ section.ds {
   font-weight: 300;
   font-size: 12px;
   margin-top: 0; }
+
+i.active {
+  background-color: #34495e; }
+
+.currentFilter {
+  font-size: 10px;
+  color: white; }
 
 .height100vh {
   height: 100vh; }
