@@ -38,7 +38,7 @@ aside.navigation
             i.fa.fa-certificate
 
         // Projects
-        span.currentFilter {{currentFilter}}
+        span.currentFilter(ng-if="isActive('/ds/projects')") {{currentFilter}}
 
 
         .filterOn( ng-if="isActive('/ds/projects')",ng-show="connected == false")
