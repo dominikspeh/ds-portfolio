@@ -20,6 +20,7 @@ controller('HeadCtrl', function ($scope, socket, $rootScope, $location) {
 // global controller
 controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $location, socket, $window) {
     $scope.showMobileNav = false;
+    $scope.showFilterNav = false;
     $scope.$route = $route;
 
     $scope.isActive = function (viewLocation) {

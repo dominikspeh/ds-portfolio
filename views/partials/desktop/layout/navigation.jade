@@ -38,9 +38,16 @@ aside.navigation
             i.fa.fa-certificate
 
         // Projects
-        //span(data-toggle='tooltip', data-placement='left', title='Filter',ng-if="isActive('/ds/projects')")
-            i.fa.fa-filter()
 
+        //span.filter(ng-if="isActive('/ds/projects')", ng-click="showFilterNav = !showFilterNav ; showNavigation = false", ng-show="connected == false")
+            i.fa.fa-filter
+            .filterOn(ng-show="showFilterNav")
+
+                i.fa.fa-code
+
+                i.ion.ion-paintbrush
+
+                i.ion.ion-iphone
 
         // Project Details
 
@@ -84,6 +91,8 @@ aside.navigation
                 a(href="/ds/imprint") Impressum
             li
                 a(href="/ds/privacy") Datenschutz
+
+
 
 
 

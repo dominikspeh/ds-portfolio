@@ -275,7 +275,29 @@ section.ds {
 
 }
 
+.filterContainer {
+  border: 1px solid white;
+  width: 450px;
+  position: fixed;
+  bottom:0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $secondary-color;
+  color: white;
+  z-index: 99;
 
+}
+.filter:hover {
+
+
+  i {
+    background: none!important;
+
+  }
+  i:hover {
+    background: $secondary-color!important;
+  }
+}
 // WELCOME
 .welcome {
   opacity: 0;

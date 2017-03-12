@@ -214,6 +214,22 @@ section.ds {
   color: white;
   z-index: 3; }
 
+.filterContainer {
+  border: 1px solid white;
+  width: 450px;
+  position: fixed;
+  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #34495e;
+  color: white;
+  z-index: 99; }
+
+.filter:hover i {
+  background: none !important; }
+.filter:hover i:hover {
+  background: #34495e !important; }
+
 .welcome {
   opacity: 0;
   display: flex;
@@ -920,7 +936,7 @@ section.ds {
 
   iframe {
     width: 100%;
-    height: 500px; } }
+    height: 300px; } }
 @media (max-width: 1000px) and (min-width: 600px) {
   .welcome {
     height: 100vh; }
