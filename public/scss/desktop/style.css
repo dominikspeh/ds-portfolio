@@ -22,7 +22,7 @@ body {
   position: absolute;
   bottom: 20px;
   right: 90px;
-  z-index: 4; }
+  z-index: 2; }
 
 .bgImage {
   width: 100%; }
@@ -488,10 +488,10 @@ i.active {
   .projects .col:hover figure .edit {
     opacity: 1; }
 
-.languages, .frameworks {
+.languages, .frameworks, .others {
   margin: 0;
   padding: 0; }
-  .languages li, .frameworks li {
+  .languages li, .frameworks li, .others li {
     display: inline;
     margin-right: 5px;
     background-color: #49afa4;
@@ -500,10 +500,10 @@ i.active {
     font-weight: 300;
     font-size: 8px;
     border-radius: 10px; }
-  .languages li:nth-child(7):after, .frameworks li:nth-child(7):after {
+  .languages li:nth-child(7):after, .frameworks li:nth-child(7):after, .others li:nth-child(7):after {
     content: "\A";
     white-space: pre; }
-  .languages li.frameworks, .frameworks li.frameworks {
+  .languages li.frameworks, .frameworks li.frameworks, .others li.frameworks {
     background-color: #34495e; }
 
 .competences {
@@ -944,7 +944,10 @@ i.active {
 
   iframe {
     width: 100%;
-    height: 300px; } }
+    height: 300px; }
+
+  .remote, .currentFilter {
+    display: none; } }
 @media (max-width: 1000px) and (min-width: 600px) {
   .welcome {
     height: 100vh; }

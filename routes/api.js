@@ -98,4 +98,11 @@ router.post('/post/contact', function (req,res) {
 
 });
 
+
+router.post('/post/madden', function (req,res) {
+
+    res.json(req.body);
+
+
+});
 module.exports = router;

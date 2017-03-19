@@ -24,6 +24,9 @@ controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $locatio
     $scope.currentFilter = "All" ;
 
 
+    // DISABLE CONSOLE LOG
+    console.log = function() {}
+
     $scope.filterProjects = function (filter) {
         $(".projects .col").show();
         $scope.currentFilter  = filter;
@@ -32,7 +35,7 @@ controller('GlobalCtrl', function($scope, $route, $timeout, $rootScope, $locatio
             $(".projects .col").each(function () {
                 if($.inArray(filter, $(this).data("tags"))== -1){
 
-                    $(this).fadeOut();
+                    $(this).hide();
                 }
 
             });
